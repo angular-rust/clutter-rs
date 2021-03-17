@@ -1,0 +1,39 @@
+[package]
+name = "clutter-rs"
+version = "0.1.0"
+authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
+edition = "2018"
+license = "MIT"
+homepage = "https://gtk-rs.org/"
+keywords = ["clutter", "gtk", "gtk-rs", "gnome", "GUI"]
+readme = "README.md"
+documentation = "https://gtk-rs.org/docs/gdk/"
+description = "Rust bindings for the GDK 3 library"
+repository = "https://github.com/gtk-rs/gdk"
+
+[lib]
+name = "clutter"
+
+[dependencies]
+libc = "0.2"
+bitflags = "1.0"
+
+atk = "0.9"
+glib-sys = "0.10"
+gdk-sys = "0.10"
+gio-sys = "0.10"
+gobject-sys = "0.10"
+cairo-sys-rs = "0.10"
+cairo-rs = "0.9"
+gdk-pixbuf = "0.9"
+gio = "0.9"
+glib = "0.10"
+pango = "0.9"
+
+cogl-rs = "0.1"
+# cogl-sys = { path = "../cogl-sys" }
+ffi = { package = "clutter-sys-rs", path = "sys" }
+# json-sys = { path = "../json-sys" }
+
+[dev-dependencies]
+gir-format-check = "^0.1"
