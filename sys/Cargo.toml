@@ -2,9 +2,19 @@
 name = "clutter-sys-rs"
 version = "0.1.0"
 authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
+readme = "README.md"
+homepage = "https://angular-rust.github.io/clutter-rs"
+repository = "https://github.com/angular-rust/clutter-rs"
+documentation = "https://docs.rs/clutter-sys-rs"
+description = "FFI bindings for the Clutter library"
+keywords = ["clutter", "gtk", "gtk-rs", "gnome", "gui"]
+categories = ["multimedia", "gui"]
+license = "MIT"
+edition = "2018"
+
 links = "\"clutter-1.0\""
 build = "build.rs"
-edition = "2018"
+
 
 [package.metadata.system-deps.clutter_1_0]
 name = "clutter-1.0"
@@ -13,12 +23,14 @@ version = "1.26"
 [lib]
 name = "clutter_sys"
 
+[features]
+dox = []
+
 [dependencies]
 libc = "0.2"
 
 [dependencies.cogl-sys-rs]
 version = "0.1"
-path = "../../cogl-rs/sys"
 
 # [dependencies.json-sys]
 # path = "../json-sys"

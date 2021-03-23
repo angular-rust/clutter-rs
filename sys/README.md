@@ -1,6 +1,6 @@
 <div id="top" align="center">
 
-# clutter-rs
+# clutter-sys-rs
 
 [![API Docs][docrs-badge]][docrs-url]
 [![Crates.io][crates-badge]][crates-url]
@@ -10,10 +10,10 @@
 [![loc][loc-badge]][loc-url]
 </div>
 
-[docrs-badge]: https://img.shields.io/docsrs/clutter-rs?style=flat-square
-[docrs-url]: https://docs.rs/clutter-rs/
-[crates-badge]: https://img.shields.io/crates/v/clutter-rs.svg?style=flat-square
-[crates-url]: https://crates.io/crates/clutter-rs
+[docrs-badge]: https://img.shields.io/docsrs/clutter-sys-rs?style=flat-square
+[docrs-url]: https://docs.rs/clutter-sys-rs/
+[crates-badge]: https://img.shields.io/crates/v/clutter-sys-rs.svg?style=flat-square
+[crates-url]: https://crates.io/crates/clutter-sys-rs
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/angular-rust/clutter-rs/blob/master/LICENSE
 [gitter-badge]: https://img.shields.io/gitter/room/angular_rust/angular_rust.svg?style=flat-square
@@ -23,7 +23,7 @@
 [loc-badge]: https://tokei.rs/b1/github/angular-rust/clutter-rs?category=code
 [loc-url]: https://github.com/angular-rust/clutter-rs
 
-**clutter-rs** is Rust bindings for the Clutter library. clutter-rs is being developed in the Angular Rust infrastructure since Angular Rust depends on it.
+**clutter-sys-rs** is FFI bindings to Clutter library. clutter-sys-rs is being developed in the Angular Rust infrastructure since Angular Rust depends on it.
 
 **Clutter** is an open source software library for creating fast, compelling, portable, and dynamic graphical user interfaces.
 

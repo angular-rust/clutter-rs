@@ -2,17 +2,24 @@
 name = "clutter-rs"
 version = "0.1.0"
 authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
-edition = "2018"
-license = "MIT"
-homepage = "https://gtk-rs.org/"
-keywords = ["clutter", "gtk", "gtk-rs", "gnome", "GUI"]
 readme = "README.md"
-documentation = "https://gtk-rs.org/docs/gdk/"
-description = "Rust bindings for the GDK 3 library"
-repository = "https://github.com/gtk-rs/gdk"
+homepage = "https://angular-rust.github.io/clutter-rs"
+repository = "https://github.com/angular-rust/clutter-rs"
+documentation = "https://docs.rs/clutter-rs"
+description = "Rust bindings for the Clutter library"
+keywords = ["clutter", "gtk", "gtk-rs", "gnome", "gui"]
+categories = ["multimedia", "gui"]
+license = "MIT"
+edition = "2018"
 
 [lib]
 name = "clutter"
+
+[features]
+dox = ["clutter-sys-rs/dox"]
+
+[package.metadata.docs.rs]
+features = ["dox"]
 
 [dependencies]
 libc = "0.2"
@@ -31,8 +38,7 @@ glib = "0.10"
 pango = "0.9"
 
 cogl-rs = "0.1"
-# cogl-sys = { path = "../cogl-sys" }
-ffi = { package = "clutter-sys-rs", path = "sys" }
+ffi = { package = "clutter-sys-rs", version="0.1", path = "sys" }
 # json-sys = { path = "../json-sys" }
 
 [dev-dependencies]
