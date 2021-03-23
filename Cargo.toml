@@ -16,7 +16,7 @@ edition = "2018"
 name = "clutter"
 
 [features]
-dox = ["clutter-sys-rs/dox"]
+dox = ["ffi/dox"]
 
 [package.metadata.docs.rs]
 features = ["dox"]
