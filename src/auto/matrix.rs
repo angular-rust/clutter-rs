@@ -32,11 +32,7 @@ impl Matrix {
     }
 
     pub fn init_identity(&mut self) -> Option<Matrix> {
-        unsafe {
-            from_glib_none(ffi::clutter_matrix_init_identity(
-                self.to_glib_none_mut().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_matrix_init_identity(self.to_glib_none_mut().0)) }
     }
 
     pub fn alloc() -> Option<Matrix> {

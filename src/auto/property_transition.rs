@@ -2,6 +2,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Timeline;
+use super::Transition;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,8 +15,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Timeline;
-use super::Transition;
 
 glib_wrapper! {
     pub struct PropertyTransition(Object<ffi::ClutterPropertyTransition, ffi::ClutterPropertyTransitionClass, PropertyTransitionClass>) @extends Transition, Timeline;

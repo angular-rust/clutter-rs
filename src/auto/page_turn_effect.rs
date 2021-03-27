@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::DeformEffect;
+use super::Effect;
+use super::OffscreenEffect;
 use ffi;
 use glib::object::Cast;
 use glib::object::ObjectType as ObjectType_;
@@ -12,10 +16,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::ActorMeta;
-use super::DeformEffect;
-use super::Effect;
-use super::OffscreenEffect;
 
 glib_wrapper! {
     pub struct PageTurnEffect(Object<ffi::ClutterPageTurnEffect, ffi::ClutterPageTurnEffectClass, PageTurnEffectClass>) @extends DeformEffect, OffscreenEffect, Effect, ActorMeta;
@@ -29,10 +29,8 @@ impl PageTurnEffect {
     pub fn new(period: f64, angle: f64, radius: f32) -> PageTurnEffect {
         assert_initialized_main_thread!();
         unsafe {
-            Effect::from_glib_none(ffi::clutter_page_turn_effect_new(
-                period, angle, radius,
-            ))
-            .unsafe_cast()
+            Effect::from_glib_none(ffi::clutter_page_turn_effect_new(period, angle, radius))
+                .unsafe_cast()
         }
     }
 

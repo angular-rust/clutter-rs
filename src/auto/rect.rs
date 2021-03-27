@@ -2,9 +2,9 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Point;
 use ffi;
 use glib::translate::*;
-use super::Point;
 
 glib_wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -59,10 +59,7 @@ impl Rect {
     pub fn get_center(&mut self) -> Point {
         unsafe {
             let mut center = Point::uninitialized();
-            ffi::clutter_rect_get_center(
-                self.to_glib_none_mut().0,
-                center.to_glib_none_mut().0,
-            );
+            ffi::clutter_rect_get_center(self.to_glib_none_mut().0, center.to_glib_none_mut().0);
             center
         }
     }
@@ -118,11 +115,7 @@ impl Rect {
     }
 
     pub fn normalize(&mut self) -> Option<Rect> {
-        unsafe {
-            from_glib_full(ffi::clutter_rect_normalize(
-                self.to_glib_none_mut().0,
-            ))
-        }
+        unsafe { from_glib_full(ffi::clutter_rect_normalize(self.to_glib_none_mut().0)) }
     }
 
     pub fn offset(&mut self, d_x: f32, d_y: f32) {

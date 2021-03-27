@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::ActorMeta;
+use super::BindCoordinate;
+use super::Constraint;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,10 +17,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::ActorMeta;
-use super::BindCoordinate;
-use super::Constraint;
 
 glib_wrapper! {
     pub struct BindConstraint(Object<ffi::ClutterBindConstraint, ffi::ClutterBindConstraintClass, BindConstraintClass>) @extends Constraint, ActorMeta;

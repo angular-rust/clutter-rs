@@ -2,13 +2,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Timeline;
+use super::Transition;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::Timeline;
-use super::Transition;
 
 glib_wrapper! {
     pub struct TransitionGroup(Object<ffi::ClutterTransitionGroup, ffi::ClutterTransitionGroupClass, TransitionGroupClass>) @extends Transition, Timeline;
@@ -21,9 +21,7 @@ glib_wrapper! {
 impl TransitionGroup {
     pub fn new() -> TransitionGroup {
         assert_initialized_main_thread!();
-        unsafe {
-            Transition::from_glib_full(ffi::clutter_transition_group_new()).unsafe_cast()
-        }
+        unsafe { Transition::from_glib_full(ffi::clutter_transition_group_new()).unsafe_cast() }
     }
 }
 

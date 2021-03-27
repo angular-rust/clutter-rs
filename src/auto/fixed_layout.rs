@@ -2,11 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::LayoutManager;
 use ffi;
 use glib::object::Cast;
 use glib::translate::*;
 use std::fmt;
-use super::LayoutManager;
 
 glib_wrapper! {
     pub struct FixedLayout(Object<ffi::ClutterFixedLayout, ffi::ClutterFixedLayoutClass, FixedLayoutClass>) @extends LayoutManager;
@@ -19,9 +19,7 @@ glib_wrapper! {
 impl FixedLayout {
     pub fn new() -> FixedLayout {
         assert_initialized_main_thread!();
-        unsafe {
-            LayoutManager::from_glib_none(ffi::clutter_fixed_layout_new()).unsafe_cast()
-        }
+        unsafe { LayoutManager::from_glib_none(ffi::clutter_fixed_layout_new()).unsafe_cast() }
     }
 }
 

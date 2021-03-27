@@ -2,6 +2,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::ChildMeta;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,8 +14,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::ChildMeta;
 
 glib_wrapper! {
     pub struct Container(Interface<ffi::ClutterContainer>);

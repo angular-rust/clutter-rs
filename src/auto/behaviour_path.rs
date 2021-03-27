@@ -2,6 +2,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Path;
+use crate::Behaviour;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -16,8 +18,6 @@ use gobject_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use crate::Behaviour;
-use super::Path;
 
 glib_wrapper! {
     pub struct BehaviourPath(Object<ffi::ClutterBehaviourPath, ffi::ClutterBehaviourPathClass, BehaviourPathClass>) @extends Behaviour;

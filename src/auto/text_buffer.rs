@@ -87,11 +87,7 @@ pub trait TextBufferExt: 'static {
 impl<O: IsA<TextBuffer>> TextBufferExt for O {
     fn delete_text(&self, position: u32, n_chars: i32) -> u32 {
         unsafe {
-            ffi::clutter_text_buffer_delete_text(
-                self.as_ref().to_glib_none().0,
-                position,
-                n_chars,
-            )
+            ffi::clutter_text_buffer_delete_text(self.as_ref().to_glib_none().0, position, n_chars)
         }
     }
 
@@ -149,10 +145,7 @@ impl<O: IsA<TextBuffer>> TextBufferExt for O {
 
     fn set_max_length(&self, max_length: i32) {
         unsafe {
-            ffi::clutter_text_buffer_set_max_length(
-                self.as_ref().to_glib_none().0,
-                max_length,
-            );
+            ffi::clutter_text_buffer_set_max_length(self.as_ref().to_glib_none().0, max_length);
         }
     }
 

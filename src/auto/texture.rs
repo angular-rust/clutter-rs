@@ -2,8 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-use ffi;
+use super::Actor;
+use super::Animatable;
+use super::Container;
+use super::TextureQuality;
 use cogl;
+use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
 use glib::signal::connect_raw;
@@ -16,10 +20,6 @@ use gobject_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::Animatable;
-use super::Container;
-use super::TextureQuality;
 
 glib_wrapper! {
     pub struct Texture(Object<ffi::ClutterTexture, ffi::ClutterTextureClass, TextureClass>) @extends Actor, @implements Animatable, Container;

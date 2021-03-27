@@ -2,6 +2,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Knot;
+use super::PathNode;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,8 +15,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Knot;
-use super::PathNode;
 
 glib_wrapper! {
     pub struct Path(Object<ffi::ClutterPath, ffi::ClutterPathClass, PathClass>);
@@ -131,10 +131,7 @@ impl<O: IsA<Path>> PathExt for O {
 
     fn add_node(&self, node: &PathNode) {
         unsafe {
-            ffi::clutter_path_add_node(
-                self.as_ref().to_glib_none().0,
-                node.to_glib_none().0,
-            );
+            ffi::clutter_path_add_node(self.as_ref().to_glib_none().0, node.to_glib_none().0);
         }
     }
 

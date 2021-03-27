@@ -2,6 +2,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Stage;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,7 +13,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Stage;
 
 glib_wrapper! {
     pub struct StageManager(Object<ffi::ClutterStageManager, ffi::ClutterStageManagerClass, StageManagerClass>);
@@ -59,9 +59,9 @@ impl<O: IsA<StageManager>> StageManagerExt for O {
 
     fn list_stages(&self) -> Vec<Stage> {
         unsafe {
-            FromGlibPtrContainer::from_glib_container(
-                ffi::clutter_stage_manager_list_stages(self.as_ref().to_glib_none().0),
-            )
+            FromGlibPtrContainer::from_glib_container(ffi::clutter_stage_manager_list_stages(
+                self.as_ref().to_glib_none().0,
+            ))
         }
     }
 

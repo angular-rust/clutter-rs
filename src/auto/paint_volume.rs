@@ -2,12 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-use ffi;
-use glib::object::IsA;
-use glib::translate::*;
 use super::Actor;
 use super::ActorBox;
 use super::Vertex;
+use ffi;
+use glib::object::IsA;
+use glib::translate::*;
 
 glib_wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -82,19 +82,13 @@ impl PaintVolume {
 
     pub fn union(&mut self, another_pv: &PaintVolume) {
         unsafe {
-            ffi::clutter_paint_volume_union(
-                self.to_glib_none_mut().0,
-                another_pv.to_glib_none().0,
-            );
+            ffi::clutter_paint_volume_union(self.to_glib_none_mut().0, another_pv.to_glib_none().0);
         }
     }
 
     pub fn union_box(&mut self, box_: &ActorBox) {
         unsafe {
-            ffi::clutter_paint_volume_union_box(
-                self.to_glib_none_mut().0,
-                box_.to_glib_none().0,
-            );
+            ffi::clutter_paint_volume_union_box(self.to_glib_none_mut().0, box_.to_glib_none().0);
         }
     }
 }

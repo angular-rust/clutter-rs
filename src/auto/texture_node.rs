@@ -2,16 +2,16 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-use ffi;
-use cogl;
-use glib::object::Cast;
-use glib::object::IsA;
-use glib::translate::*;
-use std::fmt;
 use super::Color;
 use super::PaintNode;
 use super::PipelineNode;
 use super::ScalingFilter;
+use cogl;
+use ffi;
+use glib::object::Cast;
+use glib::object::IsA;
+use glib::translate::*;
+use std::fmt;
 
 glib_wrapper! {
     pub struct TextureNode(Object<ffi::ClutterTextureNode, ffi::ClutterTextureNodeClass, TextureNodeClass>) @extends PipelineNode, PaintNode;

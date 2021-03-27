@@ -1,6 +1,6 @@
 [package]
 name = "clutter-sys-rs"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
 readme = "README.md"
 homepage = "https://angular-rust.github.io/clutter-rs"
@@ -15,16 +15,18 @@ edition = "2018"
 links = "\"clutter-1.0\""
 build = "build.rs"
 
-
 [package.metadata.system-deps.clutter_1_0]
 name = "clutter-1.0"
 version = "1.26"
 
-[lib]
-name = "clutter_sys"
+[package.metadata.docs.rs]
+features = ["dox"]
 
 [features]
 dox = []
+
+[lib]
+name = "clutter_sys"
 
 [dependencies]
 libc = "0.2"

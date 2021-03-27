@@ -1,7 +1,7 @@
+use super::ActorMeta;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use super::ActorMeta;
 
 glib_wrapper! {
     pub struct Action(Object<ffi::ClutterAction, ffi::ClutterActionClass, ActionClass>) @extends ActorMeta;

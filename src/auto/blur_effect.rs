@@ -2,13 +2,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::Effect;
+use super::OffscreenEffect;
 use ffi;
 use glib::object::Cast;
 use glib::translate::*;
 use std::fmt;
-use super::ActorMeta;
-use super::Effect;
-use super::OffscreenEffect;
 
 glib_wrapper! {
     pub struct BlurEffect(Object<ffi::ClutterBlurEffect, ffi::ClutterBlurEffectClass, BlurEffectClass>) @extends OffscreenEffect, Effect, ActorMeta;

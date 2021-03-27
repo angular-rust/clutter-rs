@@ -397,7 +397,6 @@ impl SetValue for AnimationMode {
     }
 }
 
-#[deprecated]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 pub enum BinAlignment {
@@ -410,7 +409,6 @@ pub enum BinAlignment {
     __Unknown(i32),
 }
 
-#[deprecated]
 impl fmt::Display for BinAlignment {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -428,7 +426,6 @@ impl fmt::Display for BinAlignment {
     }
 }
 
-#[deprecated]
 #[doc(hidden)]
 impl ToGlib for BinAlignment {
     type GlibType = ffi::ClutterBinAlignment;
@@ -445,7 +442,6 @@ impl ToGlib for BinAlignment {
     }
 }
 
-#[deprecated]
 #[doc(hidden)]
 impl FromGlib<ffi::ClutterBinAlignment> for BinAlignment {
     fn from_glib(value: ffi::ClutterBinAlignment) -> Self {
@@ -461,28 +457,24 @@ impl FromGlib<ffi::ClutterBinAlignment> for BinAlignment {
     }
 }
 
-#[deprecated]
 impl StaticType for BinAlignment {
     fn static_type() -> Type {
         unsafe { from_glib(ffi::clutter_bin_alignment_get_type()) }
     }
 }
 
-#[deprecated]
 impl<'a> FromValueOptional<'a> for BinAlignment {
     unsafe fn from_value_optional(value: &Value) -> Option<Self> {
         Some(FromValue::from_value(value))
     }
 }
 
-#[deprecated]
 impl<'a> FromValue<'a> for BinAlignment {
     unsafe fn from_value(value: &Value) -> Self {
         from_glib(gobject_sys::g_value_get_enum(value.to_glib_none().0))
     }
 }
 
-#[deprecated]
 impl SetValue for BinAlignment {
     unsafe fn set_value(value: &mut Value, this: &Self) {
         gobject_sys::g_value_set_enum(value.to_glib_none_mut().0, this.to_glib())
@@ -1877,7 +1869,6 @@ impl SetValue for RotateAxis {
     }
 }
 
-#[deprecated]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 pub enum RotateDirection {
@@ -1887,7 +1878,6 @@ pub enum RotateDirection {
     __Unknown(i32),
 }
 
-#[deprecated]
 impl fmt::Display for RotateDirection {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1902,7 +1892,6 @@ impl fmt::Display for RotateDirection {
     }
 }
 
-#[deprecated]
 #[doc(hidden)]
 impl ToGlib for RotateDirection {
     type GlibType = ffi::ClutterRotateDirection;
@@ -1916,7 +1905,6 @@ impl ToGlib for RotateDirection {
     }
 }
 
-#[deprecated]
 #[doc(hidden)]
 impl FromGlib<ffi::ClutterRotateDirection> for RotateDirection {
     fn from_glib(value: ffi::ClutterRotateDirection) -> Self {
@@ -1929,28 +1917,24 @@ impl FromGlib<ffi::ClutterRotateDirection> for RotateDirection {
     }
 }
 
-#[deprecated]
 impl StaticType for RotateDirection {
     fn static_type() -> Type {
         unsafe { from_glib(ffi::clutter_rotate_direction_get_type()) }
     }
 }
 
-#[deprecated]
 impl<'a> FromValueOptional<'a> for RotateDirection {
     unsafe fn from_value_optional(value: &Value) -> Option<Self> {
         Some(FromValue::from_value(value))
     }
 }
 
-#[deprecated]
 impl<'a> FromValue<'a> for RotateDirection {
     unsafe fn from_value(value: &Value) -> Self {
         from_glib(gobject_sys::g_value_get_enum(value.to_glib_none().0))
     }
 }
 
-#[deprecated]
 impl SetValue for RotateDirection {
     unsafe fn set_value(value: &mut Value, this: &Self) {
         gobject_sys::g_value_set_enum(value.to_glib_none_mut().0, this.to_glib())
@@ -2661,7 +2645,6 @@ impl SetValue for TextDirection {
     }
 }
 
-#[deprecated]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 pub enum TextureQuality {
@@ -2672,7 +2655,6 @@ pub enum TextureQuality {
     __Unknown(i32),
 }
 
-#[deprecated]
 impl fmt::Display for TextureQuality {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -2688,7 +2670,6 @@ impl fmt::Display for TextureQuality {
     }
 }
 
-#[deprecated]
 #[doc(hidden)]
 impl ToGlib for TextureQuality {
     type GlibType = ffi::ClutterTextureQuality;
@@ -2703,7 +2684,6 @@ impl ToGlib for TextureQuality {
     }
 }
 
-#[deprecated]
 #[doc(hidden)]
 impl FromGlib<ffi::ClutterTextureQuality> for TextureQuality {
     fn from_glib(value: ffi::ClutterTextureQuality) -> Self {
@@ -2717,28 +2697,24 @@ impl FromGlib<ffi::ClutterTextureQuality> for TextureQuality {
     }
 }
 
-#[deprecated]
 impl StaticType for TextureQuality {
     fn static_type() -> Type {
         unsafe { from_glib(ffi::clutter_texture_quality_get_type()) }
     }
 }
 
-#[deprecated]
 impl<'a> FromValueOptional<'a> for TextureQuality {
     unsafe fn from_value_optional(value: &Value) -> Option<Self> {
         Some(FromValue::from_value(value))
     }
 }
 
-#[deprecated]
 impl<'a> FromValue<'a> for TextureQuality {
     unsafe fn from_value(value: &Value) -> Self {
         from_glib(gobject_sys::g_value_get_enum(value.to_glib_none().0))
     }
 }
 
-#[deprecated]
 impl SetValue for TextureQuality {
     unsafe fn set_value(value: &mut Value, this: &Self) {
         gobject_sys::g_value_set_enum(value.to_glib_none_mut().0, this.to_glib())

@@ -2,6 +2,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::Actor;
+use super::ActorMeta;
+use super::EventSequence;
+use super::GestureTriggerEdge;
+use super::InputDevice;
+use crate::Event;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -16,13 +23,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Action;
-use super::Actor;
-use super::ActorMeta;
-use crate::Event;
-use super::EventSequence;
-use super::GestureTriggerEdge;
-use super::InputDevice;
 
 glib_wrapper! {
     pub struct GestureAction(Object<ffi::ClutterGestureAction, ffi::ClutterGestureActionClass, GestureActionClass>) @extends Action, ActorMeta;
@@ -162,15 +162,11 @@ impl<O: IsA<GestureAction>> GestureActionExt for O {
     }
 
     fn get_n_current_points(&self) -> u32 {
-        unsafe {
-            ffi::clutter_gesture_action_get_n_current_points(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_gesture_action_get_n_current_points(self.as_ref().to_glib_none().0) }
     }
 
     fn get_n_touch_points(&self) -> i32 {
-        unsafe {
-            ffi::clutter_gesture_action_get_n_touch_points(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_gesture_action_get_n_touch_points(self.as_ref().to_glib_none().0) }
     }
 
     fn get_press_coords(&self, point: u32) -> (f32, f32) {
@@ -231,11 +227,9 @@ impl<O: IsA<GestureAction>> GestureActionExt for O {
 
     fn get_threshold_trigger_edge(&self) -> GestureTriggerEdge {
         unsafe {
-            from_glib(
-                ffi::clutter_gesture_action_get_threshold_trigger_edge(
-                    self.as_ref().to_glib_none().0,
-                ),
-            )
+            from_glib(ffi::clutter_gesture_action_get_threshold_trigger_edge(
+                self.as_ref().to_glib_none().0,
+            ))
         }
     }
 

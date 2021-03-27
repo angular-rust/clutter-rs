@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::Actor;
+use super::ActorMeta;
+use super::GestureAction;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,10 +17,6 @@ use libc;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Action;
-use super::Actor;
-use super::ActorMeta;
-use super::GestureAction;
 
 glib_wrapper! {
     pub struct RotateAction(Object<ffi::ClutterRotateAction, ffi::ClutterRotateActionClass, RotateActionClass>) @extends GestureAction, Action, ActorMeta;

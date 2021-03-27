@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Alpha;
+use super::Behaviour;
+use super::RotateAxis;
+use super::RotateDirection;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -16,10 +20,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Alpha;
-use super::Behaviour;
-use super::RotateAxis;
-use super::RotateDirection;
 
 glib_wrapper! {
     pub struct BehaviourEllipse(Object<ffi::ClutterBehaviourEllipse, ffi::ClutterBehaviourEllipseClass, BehaviourEllipseClass>) @extends Behaviour;
@@ -128,15 +128,11 @@ pub trait BehaviourEllipseExt: 'static {
 
 impl<O: IsA<BehaviourEllipse>> BehaviourEllipseExt for O {
     fn get_angle_end(&self) -> f64 {
-        unsafe {
-            ffi::clutter_behaviour_ellipse_get_angle_end(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_behaviour_ellipse_get_angle_end(self.as_ref().to_glib_none().0) }
     }
 
     fn get_angle_start(&self) -> f64 {
-        unsafe {
-            ffi::clutter_behaviour_ellipse_get_angle_start(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_behaviour_ellipse_get_angle_start(self.as_ref().to_glib_none().0) }
     }
 
     fn get_angle_tilt(&self, axis: RotateAxis) -> f64 {
@@ -199,10 +195,7 @@ impl<O: IsA<BehaviourEllipse>> BehaviourEllipseExt for O {
 
     fn set_angle_end(&self, angle_end: f64) {
         unsafe {
-            ffi::clutter_behaviour_ellipse_set_angle_end(
-                self.as_ref().to_glib_none().0,
-                angle_end,
-            );
+            ffi::clutter_behaviour_ellipse_set_angle_end(self.as_ref().to_glib_none().0, angle_end);
         }
     }
 
@@ -242,10 +235,7 @@ impl<O: IsA<BehaviourEllipse>> BehaviourEllipseExt for O {
 
     fn set_height(&self, height: i32) {
         unsafe {
-            ffi::clutter_behaviour_ellipse_set_height(
-                self.as_ref().to_glib_none().0,
-                height,
-            );
+            ffi::clutter_behaviour_ellipse_set_height(self.as_ref().to_glib_none().0, height);
         }
     }
 

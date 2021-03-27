@@ -2,6 +2,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ModifierType;
 use ffi;
 use glib::object::ObjectType as ObjectType_;
 use glib::translate::*;
@@ -10,7 +11,6 @@ use glib::StaticType;
 use glib::Value;
 use gobject_sys;
 use std::fmt;
-use super::ModifierType;
 
 glib_wrapper! {
     pub struct BindingPool(Object<ffi::ClutterBindingPool, ffi::ClutterBindingPoolClass, BindingPoolClass>);
@@ -100,11 +100,7 @@ impl BindingPool {
 
     pub fn find(name: &str) -> Option<BindingPool> {
         assert_initialized_main_thread!();
-        unsafe {
-            from_glib_none(ffi::clutter_binding_pool_find(
-                name.to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_binding_pool_find(name.to_glib_none().0)) }
     }
 
     //pub fn get_for_class(klass: /*Unimplemented*/Option<Fundamental: Pointer>) -> Option<BindingPool> {

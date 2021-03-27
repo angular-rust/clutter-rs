@@ -2,12 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Container;
 use ffi;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::Actor;
-use super::Container;
 
 glib_wrapper! {
     pub struct ChildMeta(Object<ffi::ClutterChildMeta, ffi::ClutterChildMetaClass, ChildMetaClass>);

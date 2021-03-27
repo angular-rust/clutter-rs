@@ -2,6 +2,40 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::ActorAlign;
+use super::ActorBox;
+use super::ActorFlags;
+use super::AllocationFlags;
+use super::Animatable;
+use super::AnimationMode;
+use super::Color;
+use super::Constraint;
+use super::Container;
+use super::Content;
+use super::ContentGravity;
+use super::ContentRepeat;
+use super::Effect;
+use super::LayoutManager;
+use super::Margin;
+use super::Matrix;
+use super::OffscreenRedirect;
+use super::Orientation;
+use super::PaintVolume;
+use super::Rect;
+use super::RequestMode;
+use super::RotateAxis;
+use super::ScalingFilter;
+use super::Stage;
+use super::TextDirection;
+use super::Transition;
+use super::Vertex;
+use crate::ButtonEvent;
+use crate::CrossingEvent;
+use crate::Event;
+use crate::KeyEvent;
+use crate::MotionEvent;
+use crate::ScrollEvent;
 use atk;
 use cairo;
 use ffi;
@@ -22,40 +56,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Action;
-use super::ActorAlign;
-use super::ActorBox;
-use super::ActorFlags;
-use super::AllocationFlags;
-use super::Animatable;
-use super::AnimationMode;
-use crate::ButtonEvent;
-use super::Color;
-use super::Constraint;
-use super::Container;
-use super::Content;
-use super::ContentGravity;
-use super::ContentRepeat;
-use crate::CrossingEvent;
-use super::Effect;
-use crate::Event;
-use crate::KeyEvent;
-use super::LayoutManager;
-use super::Margin;
-use super::Matrix;
-use crate::MotionEvent;
-use super::OffscreenRedirect;
-use super::Orientation;
-use super::PaintVolume;
-use super::Rect;
-use super::RequestMode;
-use super::RotateAxis;
-use super::ScalingFilter;
-use crate::ScrollEvent;
-use super::Stage;
-use super::TextDirection;
-use super::Transition;
-use super::Vertex;
 
 glib_wrapper! {
     pub struct Actor(Object<ffi::ClutterActor, ffi::ClutterActorClass, ActorClass>) @implements Animatable, Container;
@@ -1399,11 +1399,7 @@ impl<O: IsA<Actor>> ActorExt for O {
     }
 
     fn get_flags(&self) -> ActorFlags {
-        unsafe {
-            from_glib(ffi::clutter_actor_get_flags(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_actor_get_flags(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_height(&self) -> f32 {
@@ -1458,11 +1454,7 @@ impl<O: IsA<Actor>> ActorExt for O {
     }
 
     fn get_name(&self) -> Option<GString> {
-        unsafe {
-            from_glib_none(ffi::clutter_actor_get_name(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_actor_get_name(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_next_sibling(&self) -> Option<Actor> {
@@ -1649,10 +1641,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn get_rotation_angle(&self, axis: RotateAxis) -> f64 {
         unsafe {
-            ffi::clutter_actor_get_rotation_angle(
-                self.as_ref().to_glib_none().0,
-                axis.to_glib(),
-            )
+            ffi::clutter_actor_get_rotation_angle(self.as_ref().to_glib_none().0, axis.to_glib())
         }
     }
 
@@ -1691,11 +1680,7 @@ impl<O: IsA<Actor>> ActorExt for O {
     }
 
     fn get_stage(&self) -> Option<Stage> {
-        unsafe {
-            from_glib_none(ffi::clutter_actor_get_stage(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_actor_get_stage(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_text_direction(&self) -> TextDirection {
@@ -1857,11 +1842,7 @@ impl<O: IsA<Actor>> ActorExt for O {
     }
 
     fn has_clip(&self) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_actor_has_clip(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_actor_has_clip(self.as_ref().to_glib_none().0)) }
     }
 
     fn has_constraints(&self) -> bool {
@@ -1949,11 +1930,7 @@ impl<O: IsA<Actor>> ActorExt for O {
     }
 
     fn is_mapped(&self) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_actor_is_mapped(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_actor_is_mapped(self.as_ref().to_glib_none().0)) }
     }
 
     fn is_realized(&self) -> bool {
@@ -1973,11 +1950,7 @@ impl<O: IsA<Actor>> ActorExt for O {
     }
 
     fn is_scaled(&self) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_actor_is_scaled(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_actor_is_scaled(self.as_ref().to_glib_none().0)) }
     }
 
     fn is_visible(&self) -> bool {
@@ -2216,13 +2189,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_clip(&self, xoff: f32, yoff: f32, width: f32, height: f32) {
         unsafe {
-            ffi::clutter_actor_set_clip(
-                self.as_ref().to_glib_none().0,
-                xoff,
-                yoff,
-                width,
-                height,
-            );
+            ffi::clutter_actor_set_clip(self.as_ref().to_glib_none().0, xoff, yoff, width, height);
         }
     }
 
@@ -2255,10 +2222,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_content_repeat(&self, repeat: ContentRepeat) {
         unsafe {
-            ffi::clutter_actor_set_content_repeat(
-                self.as_ref().to_glib_none().0,
-                repeat.to_glib(),
-            );
+            ffi::clutter_actor_set_content_repeat(self.as_ref().to_glib_none().0, repeat.to_glib());
         }
     }
 
@@ -2286,10 +2250,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_easing_mode(&self, mode: AnimationMode) {
         unsafe {
-            ffi::clutter_actor_set_easing_mode(
-                self.as_ref().to_glib_none().0,
-                mode.to_glib(),
-            );
+            ffi::clutter_actor_set_easing_mode(self.as_ref().to_glib_none().0, mode.to_glib());
         }
     }
 
@@ -2325,10 +2286,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_margin(&self, margin: &Margin) {
         unsafe {
-            ffi::clutter_actor_set_margin(
-                self.as_ref().to_glib_none().0,
-                margin.to_glib_none().0,
-            );
+            ffi::clutter_actor_set_margin(self.as_ref().to_glib_none().0, margin.to_glib_none().0);
         }
     }
 
@@ -2358,10 +2316,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_name(&self, name: &str) {
         unsafe {
-            ffi::clutter_actor_set_name(
-                self.as_ref().to_glib_none().0,
-                name.to_glib_none().0,
-            );
+            ffi::clutter_actor_set_name(self.as_ref().to_glib_none().0, name.to_glib_none().0);
         }
     }
 
@@ -2382,11 +2337,7 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_pivot_point(&self, pivot_x: f32, pivot_y: f32) {
         unsafe {
-            ffi::clutter_actor_set_pivot_point(
-                self.as_ref().to_glib_none().0,
-                pivot_x,
-                pivot_y,
-            );
+            ffi::clutter_actor_set_pivot_point(self.as_ref().to_glib_none().0, pivot_x, pivot_y);
         }
     }
 
@@ -2404,19 +2355,13 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_reactive(&self, reactive: bool) {
         unsafe {
-            ffi::clutter_actor_set_reactive(
-                self.as_ref().to_glib_none().0,
-                reactive.to_glib(),
-            );
+            ffi::clutter_actor_set_reactive(self.as_ref().to_glib_none().0, reactive.to_glib());
         }
     }
 
     fn set_request_mode(&self, mode: RequestMode) {
         unsafe {
-            ffi::clutter_actor_set_request_mode(
-                self.as_ref().to_glib_none().0,
-                mode.to_glib(),
-            );
+            ffi::clutter_actor_set_request_mode(self.as_ref().to_glib_none().0, mode.to_glib());
         }
     }
 
@@ -2491,19 +2436,13 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_x_align(&self, x_align: ActorAlign) {
         unsafe {
-            ffi::clutter_actor_set_x_align(
-                self.as_ref().to_glib_none().0,
-                x_align.to_glib(),
-            );
+            ffi::clutter_actor_set_x_align(self.as_ref().to_glib_none().0, x_align.to_glib());
         }
     }
 
     fn set_x_expand(&self, expand: bool) {
         unsafe {
-            ffi::clutter_actor_set_x_expand(
-                self.as_ref().to_glib_none().0,
-                expand.to_glib(),
-            );
+            ffi::clutter_actor_set_x_expand(self.as_ref().to_glib_none().0, expand.to_glib());
         }
     }
 
@@ -2515,19 +2454,13 @@ impl<O: IsA<Actor>> ActorExt for O {
 
     fn set_y_align(&self, y_align: ActorAlign) {
         unsafe {
-            ffi::clutter_actor_set_y_align(
-                self.as_ref().to_glib_none().0,
-                y_align.to_glib(),
-            );
+            ffi::clutter_actor_set_y_align(self.as_ref().to_glib_none().0, y_align.to_glib());
         }
     }
 
     fn set_y_expand(&self, expand: bool) {
         unsafe {
-            ffi::clutter_actor_set_y_expand(
-                self.as_ref().to_glib_none().0,
-                expand.to_glib(),
-            );
+            ffi::clutter_actor_set_y_expand(self.as_ref().to_glib_none().0, expand.to_glib());
         }
     }
 

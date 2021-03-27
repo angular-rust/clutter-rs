@@ -2,6 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::ActorBox;
+use super::AllocationFlags;
+use super::Container;
+use super::LayoutMeta;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,11 +18,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Actor;
-use super::ActorBox;
-use super::AllocationFlags;
-use super::Container;
-use super::LayoutMeta;
 
 glib_wrapper! {
     pub struct LayoutManager(Object<ffi::ClutterLayoutManager, ffi::ClutterLayoutManagerClass, LayoutManagerClass>);

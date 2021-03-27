@@ -2,12 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-use ffi;
-use glib::translate::*;
-use std::fmt;
 use super::Actor;
 use super::Animatable;
 use super::Container;
+use ffi;
+use glib::translate::*;
+use std::fmt;
 
 glib_wrapper! {
     pub struct Group(Object<ffi::ClutterGroup, ffi::ClutterGroupClass, GroupClass>) @extends Actor, @implements Animatable, Container;

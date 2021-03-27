@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::GridPosition;
+use super::LayoutManager;
+use super::Orientation;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,10 +16,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::GridPosition;
-use super::LayoutManager;
-use super::Orientation;
 
 glib_wrapper! {
     pub struct GridLayout(Object<ffi::ClutterGridLayout, ffi::ClutterGridLayoutClass, GridLayoutClass>) @extends LayoutManager;
@@ -28,9 +28,7 @@ glib_wrapper! {
 impl GridLayout {
     pub fn new() -> GridLayout {
         assert_initialized_main_thread!();
-        unsafe {
-            LayoutManager::from_glib_none(ffi::clutter_grid_layout_new()).unsafe_cast()
-        }
+        unsafe { LayoutManager::from_glib_none(ffi::clutter_grid_layout_new()).unsafe_cast() }
     }
 }
 
@@ -155,9 +153,7 @@ impl<O: IsA<GridLayout>> GridLayoutExt for O {
     }
 
     fn get_column_spacing(&self) -> u32 {
-        unsafe {
-            ffi::clutter_grid_layout_get_column_spacing(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_grid_layout_get_column_spacing(self.as_ref().to_glib_none().0) }
     }
 
     fn get_orientation(&self) -> Orientation {
@@ -182,10 +178,7 @@ impl<O: IsA<GridLayout>> GridLayoutExt for O {
 
     fn insert_column(&self, position: i32) {
         unsafe {
-            ffi::clutter_grid_layout_insert_column(
-                self.as_ref().to_glib_none().0,
-                position,
-            );
+            ffi::clutter_grid_layout_insert_column(self.as_ref().to_glib_none().0, position);
         }
     }
 
@@ -216,10 +209,7 @@ impl<O: IsA<GridLayout>> GridLayoutExt for O {
 
     fn set_column_spacing(&self, spacing: u32) {
         unsafe {
-            ffi::clutter_grid_layout_set_column_spacing(
-                self.as_ref().to_glib_none().0,
-                spacing,
-            );
+            ffi::clutter_grid_layout_set_column_spacing(self.as_ref().to_glib_none().0, spacing);
         }
     }
 
@@ -243,10 +233,7 @@ impl<O: IsA<GridLayout>> GridLayoutExt for O {
 
     fn set_row_spacing(&self, spacing: u32) {
         unsafe {
-            ffi::clutter_grid_layout_set_row_spacing(
-                self.as_ref().to_glib_none().0,
-                spacing,
-            );
+            ffi::clutter_grid_layout_set_row_spacing(self.as_ref().to_glib_none().0, spacing);
         }
     }
 

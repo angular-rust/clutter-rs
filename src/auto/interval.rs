@@ -80,11 +80,7 @@ pub trait IntervalExt: 'static {
 
 impl<O: IsA<Interval>> IntervalExt for O {
     fn clone(&self) -> Option<Interval> {
-        unsafe {
-            from_glib_full(ffi::clutter_interval_clone(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_full(ffi::clutter_interval_clone(self.as_ref().to_glib_none().0)) }
     }
 
     //fn compute(&self, factor: f64) -> /*Ignored*/Option<glib::Value> {

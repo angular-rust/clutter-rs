@@ -2,6 +2,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::FlowOrientation;
+use super::LayoutManager;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -16,8 +18,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::FlowOrientation;
-use super::LayoutManager;
 
 glib_wrapper! {
     pub struct FlowLayout(Object<ffi::ClutterFlowLayout, ffi::ClutterFlowLayoutClass, FlowLayoutClass>) @extends LayoutManager;
@@ -31,10 +31,8 @@ impl FlowLayout {
     pub fn new(orientation: FlowOrientation) -> FlowLayout {
         assert_initialized_main_thread!();
         unsafe {
-            LayoutManager::from_glib_none(ffi::clutter_flow_layout_new(
-                orientation.to_glib(),
-            ))
-            .unsafe_cast()
+            LayoutManager::from_glib_none(ffi::clutter_flow_layout_new(orientation.to_glib()))
+                .unsafe_cast()
         }
     }
 }
@@ -123,9 +121,7 @@ pub trait FlowLayoutExt: 'static {
 
 impl<O: IsA<FlowLayout>> FlowLayoutExt for O {
     fn get_column_spacing(&self) -> f32 {
-        unsafe {
-            ffi::clutter_flow_layout_get_column_spacing(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_flow_layout_get_column_spacing(self.as_ref().to_glib_none().0) }
     }
 
     fn get_column_width(&self) -> (f32, f32) {
@@ -188,10 +184,7 @@ impl<O: IsA<FlowLayout>> FlowLayoutExt for O {
 
     fn set_column_spacing(&self, spacing: f32) {
         unsafe {
-            ffi::clutter_flow_layout_set_column_spacing(
-                self.as_ref().to_glib_none().0,
-                spacing,
-            );
+            ffi::clutter_flow_layout_set_column_spacing(self.as_ref().to_glib_none().0, spacing);
         }
     }
 
@@ -235,10 +228,7 @@ impl<O: IsA<FlowLayout>> FlowLayoutExt for O {
 
     fn set_row_spacing(&self, spacing: f32) {
         unsafe {
-            ffi::clutter_flow_layout_set_row_spacing(
-                self.as_ref().to_glib_none().0,
-                spacing,
-            );
+            ffi::clutter_flow_layout_set_row_spacing(self.as_ref().to_glib_none().0, spacing);
         }
     }
 

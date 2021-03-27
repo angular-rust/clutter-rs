@@ -2,10 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use super::ActorMeta;
 
 glib_wrapper! {
     pub struct Constraint(Object<ffi::ClutterConstraint, ffi::ClutterConstraintClass, ConstraintClass>) @extends ActorMeta;

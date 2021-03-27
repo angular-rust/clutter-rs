@@ -23,11 +23,7 @@ glib_wrapper! {
 
 impl Backend {
     pub fn get_font_options(&self) -> Option<cairo::FontOptions> {
-        unsafe {
-            from_glib_none(ffi::clutter_backend_get_font_options(
-                self.to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_backend_get_font_options(self.to_glib_none().0)) }
     }
 
     pub fn get_resolution(&self) -> f64 {
@@ -36,10 +32,7 @@ impl Backend {
 
     pub fn set_font_options(&self, options: &cairo::FontOptions) {
         unsafe {
-            ffi::clutter_backend_set_font_options(
-                self.to_glib_none().0,
-                options.to_glib_none().0,
-            );
+            ffi::clutter_backend_set_font_options(self.to_glib_none().0, options.to_glib_none().0);
         }
     }
 

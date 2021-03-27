@@ -2,6 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Animatable;
+use super::Container;
+use super::Point;
+use super::Rect;
+use super::ScrollMode;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,12 +18,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::Animatable;
-use super::Container;
-use super::Point;
-use super::Rect;
-use super::ScrollMode;
 
 glib_wrapper! {
     pub struct ScrollActor(Object<ffi::ClutterScrollActor, ffi::ClutterScrollActorClass, ScrollActorClass>) @extends Actor, @implements Animatable, Container;

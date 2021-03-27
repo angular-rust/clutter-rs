@@ -2,6 +2,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::LayoutManager;
+use super::Orientation;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,8 +14,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::LayoutManager;
-use super::Orientation;
 
 glib_wrapper! {
     pub struct BoxLayout(Object<ffi::ClutterBoxLayout, ffi::ClutterBoxLayoutClass, BoxLayoutClass>) @extends LayoutManager;
@@ -26,9 +26,7 @@ glib_wrapper! {
 impl BoxLayout {
     pub fn new() -> BoxLayout {
         assert_initialized_main_thread!();
-        unsafe {
-            LayoutManager::from_glib_none(ffi::clutter_box_layout_new()).unsafe_cast()
-        }
+        unsafe { LayoutManager::from_glib_none(ffi::clutter_box_layout_new()).unsafe_cast() }
     }
 }
 

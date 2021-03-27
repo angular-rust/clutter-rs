@@ -9,10 +9,7 @@ use glib::translate::*;
 pub struct KeyEvent(crate::Event);
 
 event_wrapper!(KeyEvent, ClutterKeyEvent);
-event_subtype!(
-    KeyEvent,
-    ffi::CLUTTER_KEY_PRESS | ffi::CLUTTER_KEY_RELEASE
-);
+event_subtype!(KeyEvent, ffi::CLUTTER_KEY_PRESS | ffi::CLUTTER_KEY_RELEASE);
 
 impl KeyEvent {
     // pub fn get_time(&self) -> u32 {

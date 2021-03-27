@@ -2,6 +2,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,7 +14,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
 
 glib_wrapper! {
     pub struct ActorMeta(Object<ffi::ClutterActorMeta, ffi::ClutterActorMetaClass, ActorMetaClass>);
@@ -79,10 +79,7 @@ impl<O: IsA<ActorMeta>> ActorMetaExt for O {
 
     fn set_name(&self, name: &str) {
         unsafe {
-            ffi::clutter_actor_meta_set_name(
-                self.as_ref().to_glib_none().0,
-                name.to_glib_none().0,
-            );
+            ffi::clutter_actor_meta_set_name(self.as_ref().to_glib_none().0, name.to_glib_none().0);
         }
     }
 

@@ -24,13 +24,7 @@ impl ActorBox {
     //}
 
     pub fn contains(&self, x: f32, y: f32) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_actor_box_contains(
-                self.to_glib_none().0,
-                x,
-                y,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_actor_box_contains(self.to_glib_none().0, x, y)) }
     }
 
     fn equal(&self, box_b: &ActorBox) -> bool {
@@ -110,13 +104,7 @@ impl ActorBox {
 
     pub fn init_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
         unsafe {
-            ffi::clutter_actor_box_init_rect(
-                self.to_glib_none_mut().0,
-                x,
-                y,
-                width,
-                height,
-            );
+            ffi::clutter_actor_box_init_rect(self.to_glib_none_mut().0, x, y, width, height);
         }
     }
 

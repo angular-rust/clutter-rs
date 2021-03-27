@@ -2,10 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Model;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use super::Model;
 
 glib_wrapper! {
     pub struct ListModel(Object<ffi::ClutterListModel, ffi::ClutterListModelClass, ListModelClass>) @extends Model;

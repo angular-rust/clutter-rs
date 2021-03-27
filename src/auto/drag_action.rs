@@ -2,6 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::Actor;
+use super::ActorMeta;
+use super::DragAxis;
+use super::ModifierType;
+use super::Rect;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -17,12 +23,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Action;
-use super::Actor;
-use super::ActorMeta;
-use super::DragAxis;
-use super::ModifierType;
-use super::Rect;
 
 glib_wrapper! {
     pub struct DragAction(Object<ffi::ClutterDragAction, ffi::ClutterDragActionClass, DragActionClass>) @extends Action, ActorMeta;
@@ -208,10 +208,7 @@ impl<O: IsA<DragAction>> DragActionExt for O {
 
     fn set_drag_axis(&self, axis: DragAxis) {
         unsafe {
-            ffi::clutter_drag_action_set_drag_axis(
-                self.as_ref().to_glib_none().0,
-                axis.to_glib(),
-            );
+            ffi::clutter_drag_action_set_drag_axis(self.as_ref().to_glib_none().0, axis.to_glib());
         }
     }
 

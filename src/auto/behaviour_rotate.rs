@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Alpha;
+use super::Behaviour;
+use super::RotateAxis;
+use super::RotateDirection;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -16,10 +20,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Alpha;
-use super::Behaviour;
-use super::RotateAxis;
-use super::RotateDirection;
 
 glib_wrapper! {
     pub struct BehaviourRotate(Object<ffi::ClutterBehaviourRotate, ffi::ClutterBehaviourRotateClass, BehaviourRotateClass>) @extends Behaviour;
@@ -157,10 +157,7 @@ impl<O: IsA<BehaviourRotate>> BehaviourRotateExt for O {
 
     fn set_axis(&self, axis: RotateAxis) {
         unsafe {
-            ffi::clutter_behaviour_rotate_set_axis(
-                self.as_ref().to_glib_none().0,
-                axis.to_glib(),
-            );
+            ffi::clutter_behaviour_rotate_set_axis(self.as_ref().to_glib_none().0, axis.to_glib());
         }
     }
 
@@ -176,12 +173,7 @@ impl<O: IsA<BehaviourRotate>> BehaviourRotateExt for O {
 
     fn set_center(&self, x: i32, y: i32, z: i32) {
         unsafe {
-            ffi::clutter_behaviour_rotate_set_center(
-                self.as_ref().to_glib_none().0,
-                x,
-                y,
-                z,
-            );
+            ffi::clutter_behaviour_rotate_set_center(self.as_ref().to_glib_none().0, x, y, z);
         }
     }
 

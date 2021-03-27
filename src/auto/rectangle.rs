@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Animatable;
+use super::Color;
+use super::Container;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -15,10 +19,6 @@ use gobject_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::Animatable;
-use super::Color;
-use super::Container;
 
 glib_wrapper! {
     pub struct Rectangle(Object<ffi::ClutterRectangle, ffi::ClutterRectangleClass, RectangleClass>) @extends Actor, @implements Animatable, Container;

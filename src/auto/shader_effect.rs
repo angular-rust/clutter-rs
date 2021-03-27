@@ -2,15 +2,15 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::Effect;
+use super::OffscreenEffect;
+use super::ShaderType;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::ActorMeta;
-use super::Effect;
-use super::OffscreenEffect;
-use super::ShaderType;
 
 glib_wrapper! {
     pub struct ShaderEffect(Object<ffi::ClutterShaderEffect, ffi::ClutterShaderEffectClass, ShaderEffectClass>) @extends OffscreenEffect, Effect, ActorMeta;
@@ -24,10 +24,8 @@ impl ShaderEffect {
     pub fn new(shader_type: ShaderType) -> ShaderEffect {
         assert_initialized_main_thread!();
         unsafe {
-            Effect::from_glib_none(ffi::clutter_shader_effect_new(
-                shader_type.to_glib(),
-            ))
-            .unsafe_cast()
+            Effect::from_glib_none(ffi::clutter_shader_effect_new(shader_type.to_glib()))
+                .unsafe_cast()
         }
     }
 }

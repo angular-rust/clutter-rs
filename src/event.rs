@@ -12,17 +12,10 @@ use std::mem;
 use std::ptr;
 
 // use AxisUse;
-#[cfg(any(feature = "v3_22", feature = "dox"))]
-use DeviceTool;
 use crate::EventSequence;
 use crate::EventType;
 use crate::InputDevice;
 use crate::ModifierType;
-// use Screen;
-use crate::ScrollDirection;
-#[cfg(any(feature = "v3_20", feature = "dox"))]
-use Seat;
-// use Window;
 
 glib_wrapper! {
     /// A generic Clutter event.
@@ -226,7 +219,6 @@ impl Event {
     //     }
     // }
 
-    // #[cfg(any(feature = "v3_20", feature = "dox"))]
     // pub fn is_scroll_stop_event(&self) -> bool {
     //     unsafe {
     //         from_glib(ffi::gdk_event_is_scroll_stop_event(
@@ -259,11 +251,7 @@ impl Event {
     // }
 
     pub fn get_event_sequence(&self) -> Option<EventSequence> {
-        unsafe {
-            from_glib_none(ffi::clutter_event_get_event_sequence(
-                self.to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_event_get_event_sequence(self.to_glib_none().0)) }
     }
 
     // pub fn triggers_context_menu(&self) -> bool {
@@ -274,24 +262,21 @@ impl Event {
     //     }
     // }
 
-    // #[cfg(any(feature = "v3_20", feature = "dox"))]
     // pub fn get_seat(&self) -> Option<Seat> {
     //     unsafe { from_glib_none(ffi::clutter_event_get_seat(self.to_glib_none().0)) }
     // }
 
-    // #[cfg(any(feature = "v3_22", feature = "dox"))]
     // pub fn get_scancode(&mut self) -> i32 {
     //     unsafe { ffi::clutter_event_get_scancode(self.to_glib_none_mut().0) }
     // }
 
-    #[cfg(any(feature = "v3_22", feature = "dox"))]
-    pub fn get_pointer_emulated(&mut self) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_event_is_pointer_emulated(
-                self.to_glib_none_mut().0,
-            ))
-        }
-    }
+    // pub fn get_pointer_emulated(&mut self) -> bool {
+    //     unsafe {
+    //         from_glib(ffi::clutter_event_is_pointer_emulated(
+    //             self.to_glib_none_mut().0,
+    //         ))
+    //     }
+    // }
 
     // pub fn set_screen(&mut self, screen: Option<&Screen>) {
     //     unsafe {
@@ -304,12 +289,7 @@ impl Event {
     // }
 
     pub fn set_device(&mut self, device: Option<&InputDevice>) {
-        unsafe {
-            ffi::clutter_event_set_device(
-                self.to_glib_none_mut().0,
-                device.to_glib_none().0,
-            )
-        }
+        unsafe { ffi::clutter_event_set_device(self.to_glib_none_mut().0, device.to_glib_none().0) }
     }
 
     pub fn get_device(&self) -> Option<InputDevice> {
@@ -318,32 +298,20 @@ impl Event {
 
     pub fn set_source_device(&mut self, device: Option<&InputDevice>) {
         unsafe {
-            ffi::clutter_event_set_source_device(
-                self.to_glib_none_mut().0,
-                device.to_glib_none().0,
-            )
+            ffi::clutter_event_set_source_device(self.to_glib_none_mut().0, device.to_glib_none().0)
         }
     }
 
     pub fn get_source_device(&self) -> Option<InputDevice> {
-        unsafe {
-            from_glib_none(ffi::clutter_event_get_source_device(
-                self.to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_event_get_source_device(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v3_22", feature = "dox"))]
-    pub fn set_device_tool(&mut self, device: Option<&DeviceTool>) {
-        unsafe {
-            ffi::clutter_event_set_device_tool(
-                self.to_glib_none_mut().0,
-                device.to_glib_none().0,
-            )
-        }
-    }
+    // pub fn set_device_tool(&mut self, device: Option<&DeviceTool>) {
+    //     unsafe {
+    //         ffi::clutter_event_set_device_tool(self.to_glib_none_mut().0, device.to_glib_none().0)
+    //     }
+    // }
 
-    // #[cfg(any(feature = "v3_22", feature = "dox"))]
     // pub fn get_device_tool(&self) -> Option<DeviceTool> {
     //     unsafe {
     //         from_glib_none(ffi::clutter_event_get_device_tool(
@@ -424,9 +392,7 @@ macro_rules! event_wrapper {
 
             #[inline]
             fn to_glib_none_mut(&'a mut self) -> StashMut<'a, *mut ::ffi::$ffi_name, Self> {
-                let ptr =
-                    ToGlibPtrMut::<*mut ::ffi::ClutterEvent>::to_glib_none_mut(&mut self.0)
-                        .0;
+                let ptr = ToGlibPtrMut::<*mut ::ffi::ClutterEvent>::to_glib_none_mut(&mut self.0).0;
                 StashMut(ptr as *mut ::ffi::$ffi_name, self)
             }
         }

@@ -2,14 +2,14 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-use ffi;
+use super::Content;
 use cogl;
+use ffi;
 use glib;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
 use std::ptr;
-use super::Content;
 
 glib_wrapper! {
     pub struct Image(Object<ffi::ClutterImage, ffi::ClutterImageClass, ImageClass>) @implements Content;

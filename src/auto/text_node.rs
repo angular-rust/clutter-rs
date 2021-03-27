@@ -2,13 +2,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Color;
+use super::PaintNode;
 use ffi;
 use glib::object::Cast;
 use glib::translate::*;
 use pango;
 use std::fmt;
-use super::Color;
-use super::PaintNode;
 
 glib_wrapper! {
     pub struct TextNode(Object<ffi::ClutterTextNode, ffi::ClutterTextNodeClass, TextNodeClass>) @extends PaintNode;

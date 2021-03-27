@@ -2,12 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ChildMeta;
+use super::LayoutManager;
 use ffi;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::ChildMeta;
-use super::LayoutManager;
 
 glib_wrapper! {
     pub struct LayoutMeta(Object<ffi::ClutterLayoutMeta, ffi::ClutterLayoutMetaClass, LayoutMetaClass>) @extends ChildMeta;

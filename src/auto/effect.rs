@@ -2,11 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
 use ffi;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::ActorMeta;
 
 glib_wrapper! {
     pub struct Effect(Object<ffi::ClutterEffect, ffi::ClutterEffectClass, EffectClass>) @extends ActorMeta;

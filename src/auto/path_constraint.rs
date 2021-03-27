@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::ActorMeta;
+use super::Constraint;
+use super::Path;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -14,10 +18,6 @@ use libc;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::ActorMeta;
-use super::Constraint;
-use super::Path;
 
 glib_wrapper! {
     pub struct PathConstraint(Object<ffi::ClutterPathConstraint, ffi::ClutterPathConstraintClass, PathConstraintClass>) @extends Constraint, ActorMeta;
@@ -44,11 +44,7 @@ impl PathConstraint {
     }
 
     pub fn get_path(&self) -> Option<Path> {
-        unsafe {
-            from_glib_none(ffi::clutter_path_constraint_get_path(
-                self.to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_path_constraint_get_path(self.to_glib_none().0)) }
     }
 
     pub fn set_offset(&self, offset: f32) {

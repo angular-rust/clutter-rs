@@ -2,13 +2,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::Effect;
+use super::Rect;
 use ffi;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::ActorMeta;
-use super::Effect;
-use super::Rect;
 
 glib_wrapper! {
     pub struct OffscreenEffect(Object<ffi::ClutterOffscreenEffect, ffi::ClutterOffscreenEffectClass, OffscreenEffectClass>) @extends Effect, ActorMeta;

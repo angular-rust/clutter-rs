@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::AnimationMode;
+use super::Point;
+use super::StepMode;
+use super::TimelineDirection;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -15,10 +19,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::AnimationMode;
-use super::Point;
-use super::StepMode;
-use super::TimelineDirection;
 
 glib_wrapper! {
     pub struct Timeline(Object<ffi::ClutterTimeline, ffi::ClutterTimelineClass, TimelineClass>);
@@ -402,10 +402,7 @@ impl<O: IsA<Timeline>> TimelineExt for O {
 
     fn set_progress_mode(&self, mode: AnimationMode) {
         unsafe {
-            ffi::clutter_timeline_set_progress_mode(
-                self.as_ref().to_glib_none().0,
-                mode.to_glib(),
-            );
+            ffi::clutter_timeline_set_progress_mode(self.as_ref().to_glib_none().0, mode.to_glib());
         }
     }
 

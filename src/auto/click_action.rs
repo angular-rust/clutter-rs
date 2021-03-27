@@ -2,6 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::Actor;
+use super::ActorMeta;
+use super::LongPressState;
+use super::ModifierType;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -16,11 +21,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Action;
-use super::Actor;
-use super::ActorMeta;
-use super::LongPressState;
-use super::ModifierType;
 
 glib_wrapper! {
     pub struct ClickAction(Object<ffi::ClutterClickAction, ffi::ClutterClickActionClass, ClickActionClass>) @extends Action, ActorMeta;

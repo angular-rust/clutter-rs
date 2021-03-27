@@ -2,6 +2,9 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::Effect;
+use super::OffscreenEffect;
 use ffi;
 use glib::object::Cast;
 use glib::object::ObjectType as ObjectType_;
@@ -13,9 +16,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::ActorMeta;
-use super::Effect;
-use super::OffscreenEffect;
 
 glib_wrapper! {
     pub struct BrightnessContrastEffect(Object<ffi::ClutterBrightnessContrastEffect, ffi::ClutterBrightnessContrastEffectClass, BrightnessContrastEffectClass>) @extends OffscreenEffect, Effect, ActorMeta;
@@ -29,8 +29,7 @@ impl BrightnessContrastEffect {
     pub fn new() -> BrightnessContrastEffect {
         assert_initialized_main_thread!();
         unsafe {
-            Effect::from_glib_full(ffi::clutter_brightness_contrast_effect_new())
-                .unsafe_cast()
+            Effect::from_glib_full(ffi::clutter_brightness_contrast_effect_new()).unsafe_cast()
         }
     }
 
@@ -92,10 +91,7 @@ impl BrightnessContrastEffect {
 
     pub fn set_contrast(&self, contrast: f32) {
         unsafe {
-            ffi::clutter_brightness_contrast_effect_set_contrast(
-                self.to_glib_none().0,
-                contrast,
-            );
+            ffi::clutter_brightness_contrast_effect_set_contrast(self.to_glib_none().0, contrast);
         }
     }
 

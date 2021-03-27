@@ -2,6 +2,9 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Backend;
+use super::InputDevice;
+use super::InputDeviceType;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -15,9 +18,6 @@ use gobject_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Backend;
-use super::InputDevice;
-use super::InputDeviceType;
 
 glib_wrapper! {
     pub struct DeviceManager(Object<ffi::ClutterDeviceManager, ffi::ClutterDeviceManagerClass, DeviceManagerClass>);
@@ -74,9 +74,9 @@ impl<O: IsA<DeviceManager>> DeviceManagerExt for O {
 
     fn list_devices(&self) -> Vec<InputDevice> {
         unsafe {
-            FromGlibPtrContainer::from_glib_container(
-                ffi::clutter_device_manager_list_devices(self.as_ref().to_glib_none().0),
-            )
+            FromGlibPtrContainer::from_glib_container(ffi::clutter_device_manager_list_devices(
+                self.as_ref().to_glib_none().0,
+            ))
         }
     }
 

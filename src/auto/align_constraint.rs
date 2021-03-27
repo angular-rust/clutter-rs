@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::ActorMeta;
+use super::AlignAxis;
+use super::Constraint;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,10 +17,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::ActorMeta;
-use super::AlignAxis;
-use super::Constraint;
 
 glib_wrapper! {
     pub struct AlignConstraint(Object<ffi::ClutterAlignConstraint, ffi::ClutterAlignConstraintClass, AlignConstraintClass>) @extends Constraint, ActorMeta;
@@ -61,10 +61,7 @@ impl AlignConstraint {
 
     pub fn set_align_axis(&self, axis: AlignAxis) {
         unsafe {
-            ffi::clutter_align_constraint_set_align_axis(
-                self.to_glib_none().0,
-                axis.to_glib(),
-            );
+            ffi::clutter_align_constraint_set_align_axis(self.to_glib_none().0, axis.to_glib());
         }
     }
 

@@ -19,7 +19,7 @@ mod event;
 #[cfg_attr(feature = "cargo-clippy", allow(unreadable_literal))]
 mod auto;
 
-// pub mod prelude;
+pub mod prelude;
 // pub use self::auto::functions::*;
 pub use auto::*;
 
@@ -43,7 +43,7 @@ mod event_touch;
 
 // pub use gdk_sys::GdkColor as Color;
 
-// pub use self::rt::{init, set_initialized};
+pub use self::rt::{init, run, set_initialized};
 
 // pub use atom::Atom;
 // pub use atom::NONE as ATOM_NONE;
@@ -83,11 +83,8 @@ pub type ScriptConnectFunc = ffi::ClutterScriptConnectFunc;
 // pub use event_focus::EventFocus;
 // pub use event_grab_broken::EventGrabBroken;
 // pub use event_owner_change::EventOwnerChange;
-// #[cfg(any(feature = "v3_22", feature = "dox"))]
 // pub use event_pad_axis::EventPadAxis;
-// #[cfg(any(feature = "v3_22", feature = "dox"))]
 // pub use event_pad_button::EventPadButton;
-// #[cfg(any(feature = "v3_22", feature = "dox"))]
 // pub use event_pad_group_mode::EventPadGroupMode;
 // pub use event_property::EventProperty;
 // pub use event_proximity::EventProximity;
@@ -95,9 +92,7 @@ pub type ScriptConnectFunc = ffi::ClutterScriptConnectFunc;
 // pub use event_selection::EventSelection;
 // pub use event_setting::EventSetting;
 // pub use event_touch::EventTouch;
-// #[cfg(any(feature = "v3_18", feature = "dox"))]
 // pub use event_touchpad_pinch::EventTouchpadPinch;
-// #[cfg(any(feature = "v3_18", feature = "dox"))]
 // pub use event_touchpad_swipe::EventTouchpadSwipe;
 // pub use event_visibility::EventVisibility;
 // pub use event_window_state::EventWindowState;

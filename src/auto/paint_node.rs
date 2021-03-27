@@ -2,11 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorBox;
 use ffi;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::ActorBox;
 
 glib_wrapper! {
     pub struct PaintNode(Object<ffi::ClutterPaintNode, ffi::ClutterPaintNodeClass, PaintNodeClass>);
@@ -62,10 +62,7 @@ impl<O: IsA<PaintNode>> PaintNodeExt for O {
 
     fn set_name(&self, name: &str) {
         unsafe {
-            ffi::clutter_paint_node_set_name(
-                self.as_ref().to_glib_none().0,
-                name.to_glib_none().0,
-            );
+            ffi::clutter_paint_node_set_name(self.as_ref().to_glib_none().0, name.to_glib_none().0);
         }
     }
 }

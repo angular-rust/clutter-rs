@@ -2,12 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::StaticColor;
 use ffi;
 use glib::translate::*;
 use glib::GString;
 use std::fmt;
 use std::mem;
-use super::StaticColor;
 
 glib_wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -87,11 +87,7 @@ impl Color {
     pub fn shade(&self, factor: f64) -> Color {
         unsafe {
             let mut result = Color::uninitialized();
-            ffi::clutter_color_shade(
-                self.to_glib_none().0,
-                factor,
-                result.to_glib_none_mut().0,
-            );
+            ffi::clutter_color_shade(self.to_glib_none().0, factor, result.to_glib_none_mut().0);
             result
         }
     }
@@ -138,12 +134,7 @@ impl Color {
         assert_initialized_main_thread!();
         unsafe {
             let mut color = Color::uninitialized();
-            ffi::clutter_color_from_hls(
-                color.to_glib_none_mut().0,
-                hue,
-                luminance,
-                saturation,
-            );
+            ffi::clutter_color_from_hls(color.to_glib_none_mut().0, hue, luminance, saturation);
             color
         }
     }

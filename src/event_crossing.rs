@@ -9,10 +9,7 @@ use glib::translate::*;
 pub struct CrossingEvent(crate::Event);
 
 event_wrapper!(CrossingEvent, ClutterCrossingEvent);
-event_subtype!(
-    CrossingEvent,
-    ffi::CLUTTER_ENTER | ffi::CLUTTER_LEAVE
-);
+event_subtype!(CrossingEvent, ffi::CLUTTER_ENTER | ffi::CLUTTER_LEAVE);
 
 impl CrossingEvent {
     // pub fn get_position(&self) -> (f64, f64) {

@@ -2,6 +2,9 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::Effect;
+use super::OffscreenEffect;
 use ffi;
 use glib::object::Cast;
 use glib::object::ObjectType as ObjectType_;
@@ -12,9 +15,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::ActorMeta;
-use super::Effect;
-use super::OffscreenEffect;
 
 glib_wrapper! {
     pub struct DesaturateEffect(Object<ffi::ClutterDesaturateEffect, ffi::ClutterDesaturateEffectClass, DesaturateEffectClass>) @extends OffscreenEffect, Effect, ActorMeta;
@@ -27,9 +27,7 @@ glib_wrapper! {
 impl DesaturateEffect {
     pub fn new(factor: f64) -> DesaturateEffect {
         assert_initialized_main_thread!();
-        unsafe {
-            Effect::from_glib_none(ffi::clutter_desaturate_effect_new(factor)).unsafe_cast()
-        }
+        unsafe { Effect::from_glib_none(ffi::clutter_desaturate_effect_new(factor)).unsafe_cast() }
     }
 
     pub fn get_factor(&self) -> f64 {

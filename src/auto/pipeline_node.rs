@@ -2,10 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::PaintNode;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use super::PaintNode;
 
 glib_wrapper! {
     pub struct PipelineNode(Object<ffi::ClutterPipelineNode, ffi::ClutterPipelineNodeClass, PipelineNodeClass>) @extends PaintNode;

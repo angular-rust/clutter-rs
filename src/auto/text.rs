@@ -2,6 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Animatable;
+use super::Color;
+use super::Container;
+use super::Rect;
+use super::TextBuffer;
 use ffi;
 use glib;
 use glib::object::Cast;
@@ -21,12 +27,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Actor;
-use super::Animatable;
-use super::Color;
-use super::Container;
-use super::Rect;
-use super::TextBuffer;
 
 glib_wrapper! {
     pub struct Text(Object<ffi::ClutterText, ffi::ClutterTextClass, TextClass>) @extends Actor, @implements Animatable, Container;
@@ -339,17 +339,11 @@ pub trait TextExt: 'static {
 
 impl<O: IsA<Text>> TextExt for O {
     fn activate(&self) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_text_activate(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_text_activate(self.as_ref().to_glib_none().0)) }
     }
 
     fn coords_to_position(&self, x: f32, y: f32) -> i32 {
-        unsafe {
-            ffi::clutter_text_coords_to_position(self.as_ref().to_glib_none().0, x, y)
-        }
+        unsafe { ffi::clutter_text_coords_to_position(self.as_ref().to_glib_none().0, x, y) }
     }
 
     fn delete_chars(&self, n_chars: u32) {
@@ -368,11 +362,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn delete_text(&self, start_pos: isize, end_pos: isize) {
         unsafe {
-            ffi::clutter_text_delete_text(
-                self.as_ref().to_glib_none().0,
-                start_pos,
-                end_pos,
-            );
+            ffi::clutter_text_delete_text(self.as_ref().to_glib_none().0, start_pos, end_pos);
         }
     }
 
@@ -393,11 +383,7 @@ impl<O: IsA<Text>> TextExt for O {
     }
 
     fn get_buffer(&self) -> Option<TextBuffer> {
-        unsafe {
-            from_glib_none(ffi::clutter_text_get_buffer(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_text_get_buffer(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_chars(&self, start_pos: isize, end_pos: isize) -> Option<GString> {
@@ -413,10 +399,7 @@ impl<O: IsA<Text>> TextExt for O {
     fn get_color(&self) -> Color {
         unsafe {
             let mut color = Color::uninitialized();
-            ffi::clutter_text_get_color(
-                self.as_ref().to_glib_none().0,
-                color.to_glib_none_mut().0,
-            );
+            ffi::clutter_text_get_color(self.as_ref().to_glib_none().0, color.to_glib_none_mut().0);
             color
         }
     }
@@ -500,11 +483,7 @@ impl<O: IsA<Text>> TextExt for O {
     }
 
     fn get_layout(&self) -> Option<pango::Layout> {
-        unsafe {
-            from_glib_none(ffi::clutter_text_get_layout(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_text_get_layout(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_layout_offsets(&self) -> (i32, i32) {
@@ -609,11 +588,7 @@ impl<O: IsA<Text>> TextExt for O {
     }
 
     fn get_text(&self) -> Option<GString> {
-        unsafe {
-            from_glib_none(ffi::clutter_text_get_text(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_text_get_text(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_use_markup(&self) -> bool {
@@ -692,10 +667,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_color(&self, color: &Color) {
         unsafe {
-            ffi::clutter_text_set_color(
-                self.as_ref().to_glib_none().0,
-                color.to_glib_none().0,
-            );
+            ffi::clutter_text_set_color(self.as_ref().to_glib_none().0, color.to_glib_none().0);
         }
     }
 
@@ -731,10 +703,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_editable(&self, editable: bool) {
         unsafe {
-            ffi::clutter_text_set_editable(
-                self.as_ref().to_glib_none().0,
-                editable.to_glib(),
-            );
+            ffi::clutter_text_set_editable(self.as_ref().to_glib_none().0, editable.to_glib());
         }
     }
 
@@ -764,10 +733,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_justify(&self, justify: bool) {
         unsafe {
-            ffi::clutter_text_set_justify(
-                self.as_ref().to_glib_none().0,
-                justify.to_glib(),
-            );
+            ffi::clutter_text_set_justify(self.as_ref().to_glib_none().0, justify.to_glib());
         }
     }
 
@@ -782,10 +748,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_line_wrap(&self, line_wrap: bool) {
         unsafe {
-            ffi::clutter_text_set_line_wrap(
-                self.as_ref().to_glib_none().0,
-                line_wrap.to_glib(),
-            );
+            ffi::clutter_text_set_line_wrap(self.as_ref().to_glib_none().0, line_wrap.to_glib());
         }
     }
 
@@ -800,10 +763,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_markup(&self, markup: Option<&str>) {
         unsafe {
-            ffi::clutter_text_set_markup(
-                self.as_ref().to_glib_none().0,
-                markup.to_glib_none().0,
-            );
+            ffi::clutter_text_set_markup(self.as_ref().to_glib_none().0, markup.to_glib_none().0);
         }
     }
 
@@ -815,10 +775,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_password_char(&self, wc: char) {
         unsafe {
-            ffi::clutter_text_set_password_char(
-                self.as_ref().to_glib_none().0,
-                wc.to_glib(),
-            );
+            ffi::clutter_text_set_password_char(self.as_ref().to_glib_none().0, wc.to_glib());
         }
     }
 
@@ -840,10 +797,7 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_selectable(&self, selectable: bool) {
         unsafe {
-            ffi::clutter_text_set_selectable(
-                self.as_ref().to_glib_none().0,
-                selectable.to_glib(),
-            );
+            ffi::clutter_text_set_selectable(self.as_ref().to_glib_none().0, selectable.to_glib());
         }
     }
 
@@ -858,20 +812,13 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_selection(&self, start_pos: isize, end_pos: isize) {
         unsafe {
-            ffi::clutter_text_set_selection(
-                self.as_ref().to_glib_none().0,
-                start_pos,
-                end_pos,
-            );
+            ffi::clutter_text_set_selection(self.as_ref().to_glib_none().0, start_pos, end_pos);
         }
     }
 
     fn set_selection_bound(&self, selection_bound: i32) {
         unsafe {
-            ffi::clutter_text_set_selection_bound(
-                self.as_ref().to_glib_none().0,
-                selection_bound,
-            );
+            ffi::clutter_text_set_selection_bound(self.as_ref().to_glib_none().0, selection_bound);
         }
     }
 
@@ -895,19 +842,13 @@ impl<O: IsA<Text>> TextExt for O {
 
     fn set_text(&self, text: Option<&str>) {
         unsafe {
-            ffi::clutter_text_set_text(
-                self.as_ref().to_glib_none().0,
-                text.to_glib_none().0,
-            );
+            ffi::clutter_text_set_text(self.as_ref().to_glib_none().0, text.to_glib_none().0);
         }
     }
 
     fn set_use_markup(&self, setting: bool) {
         unsafe {
-            ffi::clutter_text_set_use_markup(
-                self.as_ref().to_glib_none().0,
-                setting.to_glib(),
-            );
+            ffi::clutter_text_set_use_markup(self.as_ref().to_glib_none().0, setting.to_glib());
         }
     }
 

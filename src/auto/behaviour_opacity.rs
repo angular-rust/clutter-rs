@@ -2,10 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use crate::Behaviour;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use crate::Behaviour;
 
 glib_wrapper! {
     pub struct BehaviourOpacity(Object<ffi::ClutterBehaviourOpacity, ffi::ClutterBehaviourOpacityClass, BehaviourOpacityClass>) @extends Behaviour;

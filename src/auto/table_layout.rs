@@ -2,10 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::LayoutManager;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use super::LayoutManager;
 
 glib_wrapper! {
     pub struct TableLayout(Object<ffi::ClutterTableLayout, ffi::ClutterTableLayoutClass, TableLayoutClass>) @extends LayoutManager;

@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::ActorMeta;
+use super::Color;
+use super::Effect;
+use super::OffscreenEffect;
 use ffi;
 use glib::object::Cast;
 use glib::object::ObjectType as ObjectType_;
@@ -12,10 +16,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::ActorMeta;
-use super::Color;
-use super::Effect;
-use super::OffscreenEffect;
 
 glib_wrapper! {
     pub struct ColorizeEffect(Object<ffi::ClutterColorizeEffect, ffi::ClutterColorizeEffectClass, ColorizeEffectClass>) @extends OffscreenEffect, Effect, ActorMeta;
@@ -29,30 +29,22 @@ impl ColorizeEffect {
     pub fn new(tint: &Color) -> ColorizeEffect {
         assert_initialized_main_thread!();
         unsafe {
-            Effect::from_glib_none(ffi::clutter_colorize_effect_new(
-                tint.to_glib_none().0,
-            ))
-            .unsafe_cast()
+            Effect::from_glib_none(ffi::clutter_colorize_effect_new(tint.to_glib_none().0))
+                .unsafe_cast()
         }
     }
 
     pub fn get_tint(&self) -> Color {
         unsafe {
             let mut tint = Color::uninitialized();
-            ffi::clutter_colorize_effect_get_tint(
-                self.to_glib_none().0,
-                tint.to_glib_none_mut().0,
-            );
+            ffi::clutter_colorize_effect_get_tint(self.to_glib_none().0, tint.to_glib_none_mut().0);
             tint
         }
     }
 
     pub fn set_tint(&self, tint: &Color) {
         unsafe {
-            ffi::clutter_colorize_effect_set_tint(
-                self.to_glib_none().0,
-                tint.to_glib_none().0,
-            );
+            ffi::clutter_colorize_effect_set_tint(self.to_glib_none().0, tint.to_glib_none().0);
         }
     }
 

@@ -2,14 +2,14 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::PropertyTransition;
+use super::Timeline;
+use super::Transition;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
 use glib::translate::*;
 use std::fmt;
-use super::PropertyTransition;
-use super::Timeline;
-use super::Transition;
 
 glib_wrapper! {
     pub struct KeyframeTransition(Object<ffi::ClutterKeyframeTransition, ffi::ClutterKeyframeTransitionClass, KeyframeTransitionClass>) @extends PropertyTransition, Transition, Timeline;
@@ -63,11 +63,7 @@ impl<O: IsA<KeyframeTransition>> KeyframeTransitionExt for O {
     //}
 
     fn get_n_key_frames(&self) -> u32 {
-        unsafe {
-            ffi::clutter_keyframe_transition_get_n_key_frames(
-                self.as_ref().to_glib_none().0,
-            )
-        }
+        unsafe { ffi::clutter_keyframe_transition_get_n_key_frames(self.as_ref().to_glib_none().0) }
     }
 
     //fn set(&self, gtype: glib::types::Type, n_key_frames: u32, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {

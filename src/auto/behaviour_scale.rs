@@ -2,10 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Behaviour;
 use ffi;
 use glib::translate::*;
 use std::fmt;
-use super::Behaviour;
 
 glib_wrapper! {
     pub struct BehaviourScale(Object<ffi::ClutterBehaviourScale, ffi::ClutterBehaviourScaleClass, BehaviourScaleClass>) @extends Behaviour;

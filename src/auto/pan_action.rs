@@ -2,6 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::Actor;
+use super::ActorMeta;
+use super::GestureAction;
+use super::PanAxis;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -13,11 +18,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Action;
-use super::Actor;
-use super::ActorMeta;
-use super::GestureAction;
-use super::PanAxis;
 
 glib_wrapper! {
     pub struct PanAction(Object<ffi::ClutterPanAction, ffi::ClutterPanActionClass, PanActionClass>) @extends GestureAction, Action, ActorMeta;
@@ -84,9 +84,7 @@ pub trait PanActionExt: 'static {
 
 impl<O: IsA<PanAction>> PanActionExt for O {
     fn get_acceleration_factor(&self) -> f64 {
-        unsafe {
-            ffi::clutter_pan_action_get_acceleration_factor(self.as_ref().to_glib_none().0)
-        }
+        unsafe { ffi::clutter_pan_action_get_acceleration_factor(self.as_ref().to_glib_none().0) }
     }
 
     fn get_constrained_motion_delta(&self, point: u32) -> (f32, f32, f32) {
@@ -157,10 +155,7 @@ impl<O: IsA<PanAction>> PanActionExt for O {
 
     fn set_acceleration_factor(&self, factor: f64) {
         unsafe {
-            ffi::clutter_pan_action_set_acceleration_factor(
-                self.as_ref().to_glib_none().0,
-                factor,
-            );
+            ffi::clutter_pan_action_set_acceleration_factor(self.as_ref().to_glib_none().0, factor);
         }
     }
 
@@ -181,10 +176,7 @@ impl<O: IsA<PanAction>> PanActionExt for O {
 
     fn set_pan_axis(&self, axis: PanAxis) {
         unsafe {
-            ffi::clutter_pan_action_set_pan_axis(
-                self.as_ref().to_glib_none().0,
-                axis.to_glib(),
-            );
+            ffi::clutter_pan_action_set_pan_axis(self.as_ref().to_glib_none().0, axis.to_glib());
         }
     }
 

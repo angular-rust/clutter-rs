@@ -2,12 +2,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::BinAlignment;
+use super::LayoutManager;
 use ffi;
 use glib::object::Cast;
 use glib::translate::*;
 use std::fmt;
-use super::BinAlignment;
-use super::LayoutManager;
 
 glib_wrapper! {
     pub struct BinLayout(Object<ffi::ClutterBinLayout, ffi::ClutterBinLayoutClass, BinLayoutClass>) @extends LayoutManager;

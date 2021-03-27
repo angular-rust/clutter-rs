@@ -2,6 +2,10 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::ActorMeta;
+use super::Constraint;
+use super::SnapEdge;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -17,10 +21,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Actor;
-use super::ActorMeta;
-use super::Constraint;
-use super::SnapEdge;
 
 glib_wrapper! {
     pub struct SnapConstraint(Object<ffi::ClutterSnapConstraint, ffi::ClutterSnapConstraintClass, SnapConstraintClass>) @extends Constraint, ActorMeta;

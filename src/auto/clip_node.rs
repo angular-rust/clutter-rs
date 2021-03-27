@@ -2,11 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::PaintNode;
 use ffi;
 use glib::object::Cast;
 use glib::translate::*;
 use std::fmt;
-use super::PaintNode;
 
 glib_wrapper! {
     pub struct ClipNode(Object<ffi::ClutterClipNode, ffi::ClutterClipNodeClass, ClipNodeClass>) @extends PaintNode;

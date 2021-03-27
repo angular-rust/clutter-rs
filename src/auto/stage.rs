@@ -2,6 +2,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Animatable;
+use super::Container;
+use super::Group;
+use super::Perspective;
+use super::PickMode;
+use crate::Event;
 use cairo;
 use ffi;
 use glib::object::Cast;
@@ -18,13 +25,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Actor;
-use super::Animatable;
-use super::Container;
-use crate::Event;
-use super::Group;
-use super::Perspective;
-use super::PickMode;
 
 glib_wrapper! {
     pub struct Stage(Object<ffi::ClutterStage, ffi::ClutterStageClass, StageClass>) @extends Group, Actor, @implements Animatable, Container;
@@ -286,11 +286,7 @@ impl<O: IsA<Stage>> StageExt for O {
     }
 
     fn get_title(&self) -> Option<GString> {
-        unsafe {
-            from_glib_none(ffi::clutter_stage_get_title(
-                self.as_ref().to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_stage_get_title(self.as_ref().to_glib_none().0)) }
     }
 
     fn get_use_alpha(&self) -> bool {
@@ -326,10 +322,7 @@ impl<O: IsA<Stage>> StageExt for O {
 
     fn set_fullscreen(&self, fullscreen: bool) {
         unsafe {
-            ffi::clutter_stage_set_fullscreen(
-                self.as_ref().to_glib_none().0,
-                fullscreen.to_glib(),
-            );
+            ffi::clutter_stage_set_fullscreen(self.as_ref().to_glib_none().0, fullscreen.to_glib());
         }
     }
 
@@ -344,11 +337,7 @@ impl<O: IsA<Stage>> StageExt for O {
 
     fn set_minimum_size(&self, width: u32, height: u32) {
         unsafe {
-            ffi::clutter_stage_set_minimum_size(
-                self.as_ref().to_glib_none().0,
-                width,
-                height,
-            );
+            ffi::clutter_stage_set_minimum_size(self.as_ref().to_glib_none().0, width, height);
         }
     }
 
@@ -390,19 +379,13 @@ impl<O: IsA<Stage>> StageExt for O {
 
     fn set_title(&self, title: &str) {
         unsafe {
-            ffi::clutter_stage_set_title(
-                self.as_ref().to_glib_none().0,
-                title.to_glib_none().0,
-            );
+            ffi::clutter_stage_set_title(self.as_ref().to_glib_none().0, title.to_glib_none().0);
         }
     }
 
     fn set_use_alpha(&self, use_alpha: bool) {
         unsafe {
-            ffi::clutter_stage_set_use_alpha(
-                self.as_ref().to_glib_none().0,
-                use_alpha.to_glib(),
-            );
+            ffi::clutter_stage_set_use_alpha(self.as_ref().to_glib_none().0, use_alpha.to_glib());
         }
     }
 

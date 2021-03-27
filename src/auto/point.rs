@@ -49,13 +49,7 @@ impl Point {
     }
 
     pub fn init(&mut self, x: f32, y: f32) -> Option<Point> {
-        unsafe {
-            from_glib_none(ffi::clutter_point_init(
-                self.to_glib_none_mut().0,
-                x,
-                y,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_point_init(self.to_glib_none_mut().0, x, y)) }
     }
 
     pub fn zero() -> Option<Point> {

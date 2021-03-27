@@ -2,6 +2,11 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Action;
+use super::Actor;
+use super::ActorMeta;
+use super::GestureAction;
+use super::SwipeDirection;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,11 +17,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Action;
-use super::Actor;
-use super::ActorMeta;
-use super::GestureAction;
-use super::SwipeDirection;
 
 glib_wrapper! {
     pub struct SwipeAction(Object<ffi::ClutterSwipeAction, ffi::ClutterSwipeActionClass, SwipeActionClass>) @extends GestureAction, Action, ActorMeta;

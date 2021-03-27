@@ -2,6 +2,9 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Animatable;
+use super::Container;
 use ffi;
 use glib::object::Cast;
 use glib::object::IsA;
@@ -12,9 +15,6 @@ use glib_sys;
 use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem::transmute;
-use super::Actor;
-use super::Animatable;
-use super::Container;
 
 glib_wrapper! {
     pub struct Clone(Object<ffi::ClutterClone, ffi::ClutterCloneClass, CloneClass>) @extends Actor, @implements Animatable, Container;
@@ -28,10 +28,8 @@ impl Clone {
     pub fn new<P: IsA<Actor>>(source: &P) -> Clone {
         skip_assert_initialized!();
         unsafe {
-            Actor::from_glib_none(ffi::clutter_clone_new(
-                source.as_ref().to_glib_none().0,
-            ))
-            .unsafe_cast()
+            Actor::from_glib_none(ffi::clutter_clone_new(source.as_ref().to_glib_none().0))
+                .unsafe_cast()
         }
     }
 }

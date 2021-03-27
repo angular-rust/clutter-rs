@@ -37,14 +37,7 @@ impl Vertex {
     }
 
     pub fn init(&mut self, x: f32, y: f32, z: f32) -> Option<Vertex> {
-        unsafe {
-            from_glib_none(ffi::clutter_vertex_init(
-                self.to_glib_none_mut().0,
-                x,
-                y,
-                z,
-            ))
-        }
+        unsafe { from_glib_none(ffi::clutter_vertex_init(self.to_glib_none_mut().0, x, y, z)) }
     }
 }
 

@@ -2,6 +2,16 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
+use super::Actor;
+use super::Backend;
+use super::DeviceManager;
+use super::EventSequence;
+use super::InputAxis;
+use super::InputDeviceType;
+use super::InputMode;
+use super::ModifierType;
+use super::Stage;
+use crate::Event;
 use ffi;
 use glib::object::IsA;
 use glib::object::ObjectType as ObjectType_;
@@ -17,16 +27,6 @@ use std::boxed::Box as Box_;
 use std::fmt;
 use std::mem;
 use std::mem::transmute;
-use super::Actor;
-use super::Backend;
-use super::DeviceManager;
-use crate::Event;
-use super::EventSequence;
-use super::InputAxis;
-use super::InputDeviceType;
-use super::InputMode;
-use super::ModifierType;
-use super::Stage;
 
 glib_wrapper! {
     pub struct InputDevice(Object<ffi::ClutterInputDevice, ffi::ClutterInputDeviceClass, InputDeviceClass>);
@@ -87,11 +87,7 @@ impl InputDevice {
     }
 
     pub fn get_enabled(&self) -> bool {
-        unsafe {
-            from_glib(ffi::clutter_input_device_get_enabled(
-                self.to_glib_none().0,
-            ))
-        }
+        unsafe { from_glib(ffi::clutter_input_device_get_enabled(self.to_glib_none().0)) }
     }
 
     pub fn get_grabbed_actor(&self) -> Option<Actor> {
@@ -172,9 +168,9 @@ impl InputDevice {
 
     pub fn get_slave_devices(&self) -> Vec<InputDevice> {
         unsafe {
-            FromGlibPtrContainer::from_glib_container(
-                ffi::clutter_input_device_get_slave_devices(self.to_glib_none().0),
-            )
+            FromGlibPtrContainer::from_glib_container(ffi::clutter_input_device_get_slave_devices(
+                self.to_glib_none().0,
+            ))
         }
     }
 
@@ -188,21 +184,16 @@ impl InputDevice {
 
     pub fn grab<P: IsA<Actor>>(&self, actor: &P) {
         unsafe {
-            ffi::clutter_input_device_grab(
-                self.to_glib_none().0,
-                actor.as_ref().to_glib_none().0,
-            );
+            ffi::clutter_input_device_grab(self.to_glib_none().0, actor.as_ref().to_glib_none().0);
         }
     }
 
     pub fn sequence_get_grabbed_actor(&self, sequence: &mut EventSequence) -> Option<Actor> {
         unsafe {
-            from_glib_none(
-                ffi::clutter_input_device_sequence_get_grabbed_actor(
-                    self.to_glib_none().0,
-                    sequence.to_glib_none_mut().0,
-                ),
-            )
+            from_glib_none(ffi::clutter_input_device_sequence_get_grabbed_actor(
+                self.to_glib_none().0,
+                sequence.to_glib_none_mut().0,
+            ))
         }
     }
 
