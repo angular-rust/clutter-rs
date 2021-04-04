@@ -306,6 +306,9 @@ pub use self::color::Color;
 mod event_sequence;
 pub use self::event_sequence::EventSequence;
 
+mod geometry;
+pub use self::geometry::Geometry;
+
 mod knot;
 pub use self::knot::Knot;
 
@@ -314,6 +317,15 @@ pub use self::margin::Margin;
 
 mod matrix;
 pub use self::matrix::Matrix;
+
+mod list_model;
+pub use self::list_model::{ListModel, ListModelClass, NONE_LIST_MODEL};
+
+mod model;
+pub use self::model::{Model, ModelClass, NONE_MODEL};
+
+mod model_iter;
+pub use self::model_iter::{ModelIter, ModelIterClass, NONE_MODEL_ITER};
 
 mod paint_volume;
 pub use self::paint_volume::PaintVolume;
