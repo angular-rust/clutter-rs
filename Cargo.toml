@@ -25,17 +25,19 @@ dox = ["ffi/dox", "glib/dox", "glib-sys/dox", "gobject-sys/dox", "cogl-rs/dox"]
 libc = "0.2"
 bitflags = "1.0"
 
-atk = "0.9"
 glib-sys = "0.10"
 gdk-sys = "0.10"
 gio-sys = "0.10"
 gobject-sys = "0.10"
 cairo-sys-rs = "0.10"
-cairo-rs = "0.9"
-gdk-pixbuf = "0.9"
-gio = "0.9"
-glib = "0.10"
-pango = "0.9"
+
+png = "0.16"
+atk = { version = "0.9", features = ["v2_34"] }
+cairo-rs = { version = "0.9", features = ["png"] }
+gdk-pixbuf = { version = "0.9", features = ["v2_40"] }
+gio = { version = "0.9", features = ["v2_58"] }
+glib = { version="0.10", features = ["v2_58"] }
+pango = { version = "0.9", features = ["v1_42"] }
 
 cogl-rs = "0.1"
 ffi = { package = "clutter-sys-rs", version="0.1", path = "sys" }

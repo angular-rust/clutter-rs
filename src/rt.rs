@@ -76,3 +76,10 @@ pub fn run() {
         set_initialized();
     }
 }
+
+pub fn quit() {
+    assert_initialized_main_thread!();
+    unsafe {
+        ffi::clutter_main_quit();
+    }
+}

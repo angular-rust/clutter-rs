@@ -1333,20 +1333,20 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
             alignment: align_of::<ClutterScoreClass>(),
         },
     ),
-    (
-        "ClutterScript",
-        Layout {
-            size: size_of::<ClutterScript>(),
-            alignment: align_of::<ClutterScript>(),
-        },
-    ),
-    (
-        "ClutterScriptClass",
-        Layout {
-            size: size_of::<ClutterScriptClass>(),
-            alignment: align_of::<ClutterScriptClass>(),
-        },
-    ),
+    // (
+    //     "ClutterScript",
+    //     Layout {
+    //         size: size_of::<ClutterScript>(),
+    //         alignment: align_of::<ClutterScript>(),
+    //     },
+    // ),
+    // (
+    //     "ClutterScriptClass",
+    //     Layout {
+    //         size: size_of::<ClutterScriptClass>(),
+    //         alignment: align_of::<ClutterScriptClass>(),
+    //     },
+    // ),
     (
         "ClutterScriptError",
         Layout {

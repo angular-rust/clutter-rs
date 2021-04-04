@@ -43,7 +43,7 @@ mod event_touch;
 
 // pub use gdk_sys::GdkColor as Color;
 
-pub use self::rt::{init, run, set_initialized};
+pub use self::rt::{init, quit, run, set_initialized};
 
 // pub use atom::Atom;
 // pub use atom::NONE as ATOM_NONE;
@@ -75,7 +75,7 @@ pub use event_touch::TouchEvent;
 
 pub type ActorCreateChildFunc = ffi::ClutterActorCreateChildFunc;
 pub type BindingActionFunc = ffi::ClutterBindingActionFunc;
-pub type ScriptConnectFunc = ffi::ClutterScriptConnectFunc;
+// pub type ScriptConnectFunc = ffi::ClutterScriptConnectFunc;
 
 // pub use event_configure::EventConfigure;
 // pub use event_dnd::EventDND;

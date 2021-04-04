@@ -1,10 +1,9 @@
-use super::ActorMeta;
-use ffi;
-use glib::translate::*;
+use crate::ActorMeta;
+use glib::{translate::*, object as gobject};
 use std::fmt;
 
 glib_wrapper! {
-    pub struct Action(Object<ffi::ClutterAction, ffi::ClutterActionClass, ActionClass>) @extends ActorMeta;
+    pub struct Action(Object<ffi::ClutterAction, ffi::ClutterActionClass, ActionClass>) @extends ActorMeta, gobject::InitiallyUnowned;
 
     match fn {
         get_type => || ffi::clutter_action_get_type(),
