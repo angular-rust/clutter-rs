@@ -1,13 +1,15 @@
 use crate::Rect;
+use glib::{translate::*, GString};
+use std::{fmt, mem};
 
 impl Rect {
-    pub fn uninitialized() -> Rect {
-        unimplemented!() // TODO
+}
 
-        // assert_initialized_main_thread!();
-        // unsafe {
-        //     Transition::from_glib_full(ffi::clutter_transition_group_new()).unsafe_cast()
-        // }
+#[doc(hidden)]
+impl Uninitialized for Rect {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc()
     }
 }
 

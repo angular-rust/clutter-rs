@@ -1,13 +1,15 @@
 use crate::PathNode;
+use glib::{translate::*, GString};
+use std::{fmt, mem};
 
 impl PathNode {
-    pub fn uninitialized() -> PathNode {
-        unimplemented!() // TODO
+}
 
-        // assert_initialized_main_thread!();
-        // unsafe {
-        //     Transition::from_glib_full(ffi::clutter_transition_group_new()).unsafe_cast()
-        // }
+#[doc(hidden)]
+impl Uninitialized for PathNode {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        mem::zeroed()
     }
 }
 

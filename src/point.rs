@@ -1,13 +1,15 @@
 use crate::Point;
+use glib::{translate::*, GString};
+use std::{fmt, mem};
 
 impl Point {
-    pub fn uninitialized() -> Point {
-        unimplemented!() // TODO
+}
 
-        // assert_initialized_main_thread!();
-        // unsafe {
-        //     Transition::from_glib_full(ffi::clutter_transition_group_new()).unsafe_cast()
-        // }
+#[doc(hidden)]
+impl Uninitialized for Point {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc()
     }
 }
 

@@ -1,13 +1,15 @@
 use crate::Perspective;
+use glib::{translate::*, GString};
+use std::{fmt, mem};
 
 impl Perspective {
-    pub fn uninitialized() -> Perspective {
-        unimplemented!() // TODO
+}
 
-        // assert_initialized_main_thread!();
-        // unsafe {
-        //     Transition::from_glib_full(ffi::clutter_transition_group_new()).unsafe_cast()
-        // }
+#[doc(hidden)]
+impl Uninitialized for Perspective {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        mem::zeroed()
     }
 }
 
