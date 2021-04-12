@@ -1,21 +1,11 @@
-// Copyright 2015-2018, The Gtk-rs Project Developers.
-// See the COPYRIGHT file at the top-level directory of this distribution.
-// Licensed under the MIT license, see the LICENSE file or <https://opensource.org/licenses/MIT>
 #![allow(unused_macros)]
 
-use ffi;
 use glib::translate::*;
-use glib_sys;
 use libc::c_void;
-use std::fmt;
-use std::mem;
-use std::ptr;
+use std::{fmt, mem, ptr};
 
 // use AxisUse;
-use crate::EventSequence;
-use crate::EventType;
-use crate::InputDevice;
-use crate::ModifierType;
+use crate::{EventSequence, EventType, InputDevice, ModifierType};
 
 glib_wrapper! {
     /// A generic Clutter event.

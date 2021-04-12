@@ -31,7 +31,7 @@ pub trait OffscreenEffectExt: 'static {
     // /// a `cogl::Material` or `None`. The
     // ///  returned material is owned by Clutter and it should not be
     // ///  modified or freed
-    
+
     // fn get_target(&self) -> Option<cogl::Material>;
 
     /// Retrieves the origin and size of the offscreen buffer used by `self` to

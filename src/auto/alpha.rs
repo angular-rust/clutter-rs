@@ -1,4 +1,4 @@
-use glib::{ object as gobject, translate::*};
+use glib::{object as gobject, translate::*};
 use std::fmt;
 // use crate::Scriptable;
 

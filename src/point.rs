@@ -2,8 +2,7 @@ use crate::Point;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Point {
-}
+impl Point {}
 
 #[doc(hidden)]
 impl Uninitialized for Point {

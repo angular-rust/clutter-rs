@@ -2,8 +2,7 @@ use super::Color;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Color {
-}
+impl Color {}
 
 #[doc(hidden)]
 impl Uninitialized for Color {

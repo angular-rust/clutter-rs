@@ -2,8 +2,7 @@ use crate::PathNode;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl PathNode {
-}
+impl PathNode {}
 
 #[doc(hidden)]
 impl Uninitialized for PathNode {

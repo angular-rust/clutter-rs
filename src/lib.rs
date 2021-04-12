@@ -1,9 +1,15 @@
 #![allow(unused_imports)]
 #![allow(deprecated)]
-#![cfg_attr(feature = "cargo-clippy", allow(cast_ptr_alignment))]
-#![cfg_attr(feature = "cargo-clippy", allow(trivially_copy_pass_by_ref))]
-
-use ffi;
+#![cfg_attr(feature = "cargo-clippy", allow(clippy::cast_ptr_alignment))]
+#![cfg_attr(feature = "cargo-clippy", allow(clippy::trivially_copy_pass_by_ref))]
+#![allow(
+    clippy::too_many_arguments,
+    clippy::let_and_return,
+    clippy::from_over_into,
+    clippy::upper_case_acronyms,
+    clippy::new_ret_no_self,
+    clippy::wrong_self_convention
+)]
 
 #[macro_use]
 extern crate glib;
@@ -15,8 +21,8 @@ mod rt;
 #[macro_use]
 mod event;
 
-#[cfg_attr(feature = "cargo-clippy", allow(type_complexity))]
-#[cfg_attr(feature = "cargo-clippy", allow(unreadable_literal))]
+#[cfg_attr(feature = "cargo-clippy", allow(clippy::type_complexity))]
+#[cfg_attr(feature = "cargo-clippy", allow(clippy::unreadable_literal))]
 mod auto;
 
 pub mod prelude;

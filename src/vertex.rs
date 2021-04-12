@@ -2,8 +2,7 @@ use crate::Vertex;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Vertex {
-}
+impl Vertex {}
 
 #[doc(hidden)]
 impl Uninitialized for Vertex {

@@ -1,7 +1,7 @@
 use glib::translate::*;
 
 glib_wrapper! {
-    #[derive(Debug, PartialOrd, Ord, Hash)]
+    #[derive(Debug, PartialOrd, Ord)] // Hash
     pub struct Vertex(Boxed<ffi::ClutterVertex>);
 
     match fn {

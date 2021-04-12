@@ -1,5 +1,5 @@
 use crate::ActorMeta;
-use glib::{translate::*, object as gobject};
+use glib::{object as gobject, translate::*};
 use std::fmt;
 
 glib_wrapper! {

@@ -1,4 +1,9 @@
-use glib::{error::ErrorDomain, translate::*, value::{FromValue, FromValueOptional, SetValue, Value}, Quark, StaticType, Type};
+use glib::{
+    error::ErrorDomain,
+    translate::*,
+    value::{FromValue, FromValueOptional, SetValue, Value},
+    Quark, StaticType, Type,
+};
 use std::fmt;
 
 /// Controls how a `Actor` should align itself inside the extra space

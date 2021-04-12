@@ -1,3 +1,5 @@
+#![allow(clippy::missing_safety_doc)]
+
 use std::cell::Cell;
 use std::ptr;
 use std::sync::atomic::{AtomicBool, Ordering};

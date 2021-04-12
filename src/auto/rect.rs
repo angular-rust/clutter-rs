@@ -1,5 +1,5 @@
-use glib::translate::*;
 use crate::Point;
+use glib::translate::*;
 
 glib_wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]

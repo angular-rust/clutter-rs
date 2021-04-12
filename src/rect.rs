@@ -2,8 +2,7 @@ use crate::Rect;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Rect {
-}
+impl Rect {}
 
 #[doc(hidden)]
 impl Uninitialized for Rect {

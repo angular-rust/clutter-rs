@@ -2,7 +2,7 @@ use glib::translate::*;
 use std::mem;
 
 glib_wrapper! {
-    #[derive(Debug, PartialOrd, Ord, Hash)]
+    #[derive(Debug, PartialOrd, Ord)] // Hash
     pub struct ActorBox(Boxed<ffi::ClutterActorBox>);
 
     match fn {

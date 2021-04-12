@@ -2,8 +2,7 @@ use crate::Margin;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Margin {
-}
+impl Margin {}
 
 #[doc(hidden)]
 impl Uninitialized for Margin {

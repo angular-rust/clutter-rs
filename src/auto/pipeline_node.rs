@@ -1,6 +1,6 @@
+use crate::PaintNode;
 use glib::translate::*;
 use std::fmt;
-use crate::PaintNode;
 
 glib_wrapper! {
     pub struct PipelineNode(Object<ffi::ClutterPipelineNode, ffi::ClutterPipelineNodeClass, PipelineNodeClass>) @extends PaintNode;

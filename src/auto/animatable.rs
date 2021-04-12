@@ -1,6 +1,6 @@
+use crate::Interval;
 use glib::{object::IsA, translate::*};
 use std::fmt;
-use crate::Interval;
 
 glib_wrapper! {
     pub struct Animatable(Interface<ffi::ClutterAnimatable>);

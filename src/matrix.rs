@@ -2,8 +2,7 @@ use crate::Matrix;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Matrix {
-}
+impl Matrix {}
 
 #[doc(hidden)]
 impl Uninitialized for Matrix {

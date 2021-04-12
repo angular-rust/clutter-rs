@@ -2,8 +2,7 @@ use crate::Perspective;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Perspective {
-}
+impl Perspective {}
 
 #[doc(hidden)]
 impl Uninitialized for Perspective {

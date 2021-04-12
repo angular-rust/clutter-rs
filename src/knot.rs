@@ -2,8 +2,7 @@ use crate::Knot;
 use glib::{translate::*, GString};
 use std::{fmt, mem};
 
-impl Knot {
-}
+impl Knot {}
 
 #[doc(hidden)]
 impl Uninitialized for Knot {
