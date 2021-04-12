@@ -44,4 +44,3 @@ ffi = { package = "clutter-sys-rs", version="0.1", path = "sys" }
 # json-sys = { path = "../json-sys" }
 
 [dev-dependencies]
-gir-format-check = "^0.1"
