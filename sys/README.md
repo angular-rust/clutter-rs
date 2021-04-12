@@ -4,9 +4,9 @@
 
 [![API Docs][docrs-badge]][docrs-url]
 [![Crates.io][crates-badge]][crates-url]
+[![Tests][tests-badge]][tests-url]
 [![MPL-2.0 licensed][license-badge]][license-url]
 [![Gitter chat][gitter-badge]][gitter-url]
-[![Rustc Version 1.45+][rust-badge]][rust-url]
 [![loc][loc-badge]][loc-url]
 </div>
 
@@ -16,11 +16,11 @@
 [crates-url]: https://crates.io/crates/clutter-sys-rs
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/angular-rust/clutter-rs/blob/master/LICENSE
-[gitter-badge]: https://img.shields.io/gitter/room/angular_rust/angular_rust.svg?style=flat-square
+[gitter-badge]: https://img.shields.io/gitter/room/angular_rust/community.svg?style=flat-square
 [gitter-url]: https://gitter.im/angular_rust/community
-[rust-badge]: https://img.shields.io/badge/rustc-1.45-lightgrey.svg?style=flat-square
-[rust-url]: https://blog.rust-lang.org/2020/07/16/Rust-1.45.0.html
-[loc-badge]: https://tokei.rs/b1/github/angular-rust/clutter-rs?category=code
+[tests-badge]: https://img.shields.io/github/workflow/status/angular-rust/clutter-rs/tests?label=tests&logo=github&style=flat-square
+[tests-url]: https://github.com/angular-rust/clutter-rs/actions/workflows/tests.yml
+[loc-badge]: https://img.shields.io/tokei/lines/github/angular-rust/clutter-rs?style=flat-square
 [loc-url]: https://github.com/angular-rust/clutter-rs
 
 **clutter-sys-rs** is FFI bindings to Clutter library. clutter-sys-rs is being developed in the Angular Rust infrastructure since Angular Rust depends on it.
@@ -59,7 +59,7 @@ Install clutter-rs:
 
 We believe the wider community can create better code. The first tool for improving the community is to tell the developers about the project by giving it a star. More stars - more members.
 
- [![](https://dudochkin-victor.github.io/assets/star-me-wide.svg)](https://github.com/angular-rust/clutter-rs#start-of-content)
+ [![](https://dudochkin-victor.github.io/assets/star-me-wide.svg)](https://github.com/angular-rust/clutter-rs)
  
 Angular Rust is a community effort and we welcome all kinds of contributions, big or small, from developers of all backgrounds. We want the Angular Rust community to be a fun and friendly place, so please review our [Code of Conduct](CODE_OF_CONDUCT.md) to learn what behavior will not be tolerated.
 
