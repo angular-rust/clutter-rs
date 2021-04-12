@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install Clutter
-      run: sudo apt-get update && sudo apt-get install libclutter-1.0-dev
+      run: sudo apt-get update && sudo apt-get install libclutter-1.0-dev libpango1.0-dev
     - name: Build
       run: cargo build --verbose
     - name: Run tests
