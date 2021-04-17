@@ -1,6 +1,6 @@
 [package]
 name = "clutter-sys-rs"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
 readme = "README.md"
 homepage = "https://angular-rust.github.io/clutter-rs"
@@ -23,7 +23,7 @@ version = "1.26"
 features = ["dox"]
 
 [features]
-dox = []
+dox = ["cogl-sys-rs/dox", "atk-sys/dox", "glib-sys/dox", "gobject-sys/dox", "gio-sys/dox", "pango-sys/dox", "cairo-sys-rs/dox"]
 
 [lib]
 name = "clutter_sys"
@@ -32,7 +32,7 @@ name = "clutter_sys"
 libc = "0.2"
 
 [dependencies.cogl-sys-rs]
-version = "0.1"
+version = "0.1.4"
 
 # [dependencies.json-sys]
 # path = "../json-sys"

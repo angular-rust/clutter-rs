@@ -34,7 +34,11 @@ Clutter uses OpenGL for rendering (and optionally OpenGL ES for use on mobile an
 
 Clutter enforces no particular user interface style, but provides a rich, generic foundation for higher-level toolkits tailored to specific needs.
 
+> If you want to use a more actively developed library with the same functionality, but with better performance and new functionality, then I advise you to use [UX-Animate](https://github.com/angular-rust/ux-animate) as the successor to clutter-rs.
+
 **Angular Rust** is a high productivity, `platform-agnostic` frontend framework for the [Rust language](https://www.rust-lang.org/). It now supports desktop and web development. Angular Rust currently uses GTK for desktop development and WebAssembly for web development. We are planning to add support for mobile development.
+
+![Angular Rust structure](https://dudochkin-victor.github.io/assets/angular-rust/structure.svg)
 
 ## Quick Start
 

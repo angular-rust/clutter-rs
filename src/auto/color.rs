@@ -377,6 +377,14 @@ impl Color {
 
 // impl Eq for Color {}
 
+#[doc(hidden)]
+impl Uninitialized for Color {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc()
+    }
+}
+
 impl fmt::Display for Color {
     #[inline]
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

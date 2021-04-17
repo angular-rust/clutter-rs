@@ -24,6 +24,14 @@ impl Margin {
     }
 }
 
+#[doc(hidden)]
+impl Uninitialized for Margin {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::new()
+    }
+}
+
 impl Default for Margin {
     fn default() -> Self {
         Self::new()

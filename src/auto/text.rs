@@ -589,7 +589,7 @@ pub trait TextExt: 'static {
     /// ```text
     ///   /&ast; the order is important &ast;/
     ///   clutter_text_set_text (CLUTTER_TEXT (actor), markup);
-    ///   clutter_text_set_use_markup (CLUTTER_TEXT (actor), TRUE);
+    ///   clutter_text_set_use_markup (CLUTTER_TEXT (actor), true);
     /// ```
     /// ## `markup`
     /// a string containing Pango markup.

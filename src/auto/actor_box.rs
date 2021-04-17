@@ -276,6 +276,14 @@ impl ActorBox {
     }
 }
 
+#[doc(hidden)]
+impl Uninitialized for ActorBox {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc().unwrap()
+    }
+}
+
 impl PartialEq for ActorBox {
     #[inline]
     fn eq(&self, other: &Self) -> bool {

@@ -1,5 +1,6 @@
 use crate::Point;
 use glib::translate::*;
+use std::mem;
 
 glib_wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -279,5 +280,13 @@ impl Rect {
     ///  be modified or freed.
     pub fn zero() -> Option<Rect> {
         unsafe { from_glib_none(ffi::clutter_rect_zero()) }
+    }
+}
+
+#[doc(hidden)]
+impl Uninitialized for Rect {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc()
     }
 }

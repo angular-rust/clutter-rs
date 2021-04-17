@@ -118,6 +118,27 @@ mod effect;
 pub use self::effect::EffectExt;
 pub use self::effect::{Effect, EffectClass, NONE_EFFECT};
 
+mod event_button;
+pub use event_button::ButtonEvent;
+
+mod event_crossing;
+pub use event_crossing::CrossingEvent;
+
+mod event_key;
+pub use event_key::KeyEvent;
+
+mod event_motion;
+pub use event_motion::MotionEvent;
+
+mod event_scroll;
+pub use event_scroll::ScrollEvent;
+
+mod event_touch;
+pub use event_touch::TouchEvent;
+
+mod event;
+pub use event::{Event, FromEvent};
+
 mod fixed_layout;
 pub use self::fixed_layout::{FixedLayout, FixedLayoutClass, NONE_FIXED_LAYOUT};
 

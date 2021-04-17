@@ -1,4 +1,5 @@
 use glib::translate::*;
+use std::mem;
 
 glib_wrapper! {
     #[derive(Debug, PartialOrd, Ord)] // Hash
@@ -34,6 +35,14 @@ impl PartialEq for PathNode {
     #[inline]
     fn eq(&self, other: &Self) -> bool {
         self.equal(other)
+    }
+}
+
+#[doc(hidden)]
+impl Uninitialized for PathNode {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        mem::zeroed()
     }
 }
 

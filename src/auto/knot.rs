@@ -1,4 +1,5 @@
 use glib::translate::*;
+use std::mem;
 
 glib_wrapper! {
     #[derive(Debug, PartialOrd, Ord)] // Hash
@@ -26,6 +27,14 @@ impl Knot {
                 knot_b.to_glib_none().0,
             ))
         }
+    }
+}
+
+#[doc(hidden)]
+impl Uninitialized for Knot {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        mem::zeroed()
     }
 }
 

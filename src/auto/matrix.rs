@@ -1,4 +1,5 @@
 use glib::translate::*;
+use std::mem;
 
 glib_wrapper! {
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -57,5 +58,13 @@ impl Matrix {
     /// the newly allocated `Matrix`
     pub fn alloc() -> Option<Matrix> {
         unsafe { from_glib_full(ffi::clutter_matrix_alloc()) }
+    }
+}
+
+#[doc(hidden)]
+impl Uninitialized for Matrix {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc().unwrap()
     }
 }

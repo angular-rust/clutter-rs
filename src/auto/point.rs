@@ -93,3 +93,11 @@ impl Point {
         unsafe { from_glib_none(ffi::clutter_point_zero()) }
     }
 }
+
+#[doc(hidden)]
+impl Uninitialized for Point {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc()
+    }
+}

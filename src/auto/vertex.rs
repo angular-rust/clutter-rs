@@ -85,4 +85,12 @@ impl PartialEq for Vertex {
     }
 }
 
+#[doc(hidden)]
+impl Uninitialized for Vertex {
+    #[inline]
+    unsafe fn uninitialized() -> Self {
+        Self::alloc()
+    }
+}
+
 impl Eq for Vertex {}
