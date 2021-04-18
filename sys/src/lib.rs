@@ -1,5 +1,6 @@
 #![allow(non_camel_case_types, non_upper_case_globals, non_snake_case)]
 #![allow(
+    clippy::upper_case_acronyms,
     clippy::approx_constant,
     clippy::type_complexity,
     clippy::unreadable_literal
@@ -11,9 +12,9 @@ extern crate cogl_sys as cogl;
 extern crate gio_sys as gio;
 extern crate glib_sys as glib;
 extern crate gobject_sys as gobject;
-// extern crate json_sys as json;
 extern crate libc;
 extern crate pango_sys as pango;
+//extern crate json_sys as json;
 
 #[allow(unused_imports)]
 use libc::{
@@ -5140,17 +5141,17 @@ pub type ClutterProgressFunc = Option<
         *mut gobject::GValue,
     ) -> gboolean,
 >;
-pub type ClutterScriptConnectFunc = Option<
-    unsafe extern "C" fn(
-        *mut ClutterScript,
-        *mut gobject::GObject,
-        *const c_char,
-        *const c_char,
-        *mut gobject::GObject,
-        gobject::GConnectFlags,
-        gpointer,
-    ),
->;
+// pub type ClutterScriptConnectFunc = Option<
+//     unsafe extern "C" fn(
+//         *mut ClutterScript,
+//         *mut gobject::GObject,
+//         *const c_char,
+//         *const c_char,
+//         *mut gobject::GObject,
+//         gobject::GConnectFlags,
+//         gpointer,
+//     ),
+// >;
 pub type ClutterTimelineProgressFunc =
     Option<unsafe extern "C" fn(*mut ClutterTimeline, c_double, c_double, gpointer) -> c_double>;
 
@@ -7339,42 +7340,42 @@ pub struct _ClutterScorePrivate(c_void);
 
 pub type ClutterScorePrivate = *mut _ClutterScorePrivate;
 
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ClutterScriptClass {
-    pub parent_class: gobject::GObjectClass,
-    pub get_type_from_name:
-        Option<unsafe extern "C" fn(*mut ClutterScript, *const c_char) -> GType>,
-    pub _clutter_reserved1: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved2: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved3: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved4: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved5: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved6: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved7: Option<unsafe extern "C" fn()>,
-    pub _clutter_reserved8: Option<unsafe extern "C" fn()>,
-}
+// #[repr(C)]
+// #[derive(Copy, Clone)]
+// pub struct ClutterScriptClass {
+//     pub parent_class: gobject::GObjectClass,
+//     pub get_type_from_name:
+//         Option<unsafe extern "C" fn(*mut ClutterScript, *const c_char) -> GType>,
+//     pub _clutter_reserved1: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved2: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved3: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved4: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved5: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved6: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved7: Option<unsafe extern "C" fn()>,
+//     pub _clutter_reserved8: Option<unsafe extern "C" fn()>,
+// }
 
-impl ::std::fmt::Debug for ClutterScriptClass {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        f.debug_struct(&format!("ClutterScriptClass @ {:?}", self as *const _))
-            .field("get_type_from_name", &self.get_type_from_name)
-            .field("_clutter_reserved1", &self._clutter_reserved1)
-            .field("_clutter_reserved2", &self._clutter_reserved2)
-            .field("_clutter_reserved3", &self._clutter_reserved3)
-            .field("_clutter_reserved4", &self._clutter_reserved4)
-            .field("_clutter_reserved5", &self._clutter_reserved5)
-            .field("_clutter_reserved6", &self._clutter_reserved6)
-            .field("_clutter_reserved7", &self._clutter_reserved7)
-            .field("_clutter_reserved8", &self._clutter_reserved8)
-            .finish()
-    }
-}
+// impl ::std::fmt::Debug for ClutterScriptClass {
+//     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+//         f.debug_struct(&format!("ClutterScriptClass @ {:?}", self as *const _))
+//             .field("get_type_from_name", &self.get_type_from_name)
+//             .field("_clutter_reserved1", &self._clutter_reserved1)
+//             .field("_clutter_reserved2", &self._clutter_reserved2)
+//             .field("_clutter_reserved3", &self._clutter_reserved3)
+//             .field("_clutter_reserved4", &self._clutter_reserved4)
+//             .field("_clutter_reserved5", &self._clutter_reserved5)
+//             .field("_clutter_reserved6", &self._clutter_reserved6)
+//             .field("_clutter_reserved7", &self._clutter_reserved7)
+//             .field("_clutter_reserved8", &self._clutter_reserved8)
+//             .finish()
+//     }
+// }
 
-#[repr(C)]
-pub struct _ClutterScriptPrivate(c_void);
+// #[repr(C)]
+// pub struct _ClutterScriptPrivate(c_void);
 
-pub type ClutterScriptPrivate = *mut _ClutterScriptPrivate;
+// pub type ClutterScriptPrivate = *mut _ClutterScriptPrivate;
 
 // #[repr(C)]
 // #[derive(Copy, Clone)]
@@ -9023,19 +9024,19 @@ impl ::std::fmt::Debug for ClutterScore {
     }
 }
 
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ClutterScript {
-    pub parent_instance: gobject::GObject,
-    pub priv_: *mut ClutterScriptPrivate,
-}
+// #[repr(C)]
+// #[derive(Copy, Clone)]
+// pub struct ClutterScript {
+//     pub parent_instance: gobject::GObject,
+//     pub priv_: *mut ClutterScriptPrivate,
+// }
 
-impl ::std::fmt::Debug for ClutterScript {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        f.debug_struct(&format!("ClutterScript @ {:?}", self as *const _))
-            .finish()
-    }
-}
+// impl ::std::fmt::Debug for ClutterScript {
+//     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+//         f.debug_struct(&format!("ClutterScript @ {:?}", self as *const _))
+//             .finish()
+//     }
+// }
 
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -9363,16 +9364,15 @@ impl ::std::fmt::Debug for ClutterMedia {
     }
 }
 
-#[repr(C)]
-pub struct ClutterScriptable(c_void);
+// #[repr(C)]
+// pub struct ClutterScriptable(c_void);
 
-impl ::std::fmt::Debug for ClutterScriptable {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        write!(f, "ClutterScriptable @ {:?}", self as *const _)
-    }
-}
+// impl ::std::fmt::Debug for ClutterScriptable {
+//     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+//         write!(f, "ClutterScriptable @ {:?}", self as *const _)
+//     }
+// }
 
-#[link(name = "clutter-1.0")]
 extern "C" {
 
     //=========================================================================
@@ -12644,66 +12644,66 @@ extern "C" {
     //=========================================================================
     // ClutterScript
     //=========================================================================
-    pub fn clutter_script_get_type() -> GType;
-    pub fn clutter_script_new() -> *mut ClutterScript;
-    pub fn clutter_script_add_search_paths(
-        script: *mut ClutterScript,
-        paths: *const *const c_char,
-        n_paths: size_t,
-    );
-    pub fn clutter_script_add_states(
-        script: *mut ClutterScript,
-        name: *const c_char,
-        state: *mut ClutterState,
-    );
-    pub fn clutter_script_connect_signals(script: *mut ClutterScript, user_data: gpointer);
-    pub fn clutter_script_connect_signals_full(
-        script: *mut ClutterScript,
-        func: ClutterScriptConnectFunc,
-        user_data: gpointer,
-    );
-    pub fn clutter_script_ensure_objects(script: *mut ClutterScript);
-    pub fn clutter_script_get_object(
-        script: *mut ClutterScript,
-        name: *const c_char,
-    ) -> *mut gobject::GObject;
-    pub fn clutter_script_get_objects(
-        script: *mut ClutterScript,
-        first_name: *const c_char,
-        ...
-    ) -> c_int;
-    pub fn clutter_script_get_states(
-        script: *mut ClutterScript,
-        name: *const c_char,
-    ) -> *mut ClutterState;
-    pub fn clutter_script_get_translation_domain(script: *mut ClutterScript) -> *const c_char;
-    pub fn clutter_script_get_type_from_name(
-        script: *mut ClutterScript,
-        type_name: *const c_char,
-    ) -> GType;
-    pub fn clutter_script_list_objects(script: *mut ClutterScript) -> *mut glib::GList;
-    pub fn clutter_script_load_from_data(
-        script: *mut ClutterScript,
-        data: *const c_char,
-        length: ssize_t,
-        error: *mut *mut glib::GError,
-    ) -> c_uint;
-    pub fn clutter_script_load_from_file(
-        script: *mut ClutterScript,
-        filename: *const c_char,
-        error: *mut *mut glib::GError,
-    ) -> c_uint;
-    pub fn clutter_script_load_from_resource(
-        script: *mut ClutterScript,
-        resource_path: *const c_char,
-        error: *mut *mut glib::GError,
-    ) -> c_uint;
-    pub fn clutter_script_lookup_filename(
-        script: *mut ClutterScript,
-        filename: *const c_char,
-    ) -> *mut c_char;
-    pub fn clutter_script_set_translation_domain(script: *mut ClutterScript, domain: *const c_char);
-    pub fn clutter_script_unmerge_objects(script: *mut ClutterScript, merge_id: c_uint);
+    // pub fn clutter_script_get_type() -> GType;
+    // pub fn clutter_script_new() -> *mut ClutterScript;
+    // pub fn clutter_script_add_search_paths(
+    //     script: *mut ClutterScript,
+    //     paths: *const *const c_char,
+    //     n_paths: size_t,
+    // );
+    // pub fn clutter_script_add_states(
+    //     script: *mut ClutterScript,
+    //     name: *const c_char,
+    //     state: *mut ClutterState,
+    // );
+    // pub fn clutter_script_connect_signals(script: *mut ClutterScript, user_data: gpointer);
+    // pub fn clutter_script_connect_signals_full(
+    //     script: *mut ClutterScript,
+    //     func: ClutterScriptConnectFunc,
+    //     user_data: gpointer,
+    // );
+    // pub fn clutter_script_ensure_objects(script: *mut ClutterScript);
+    // pub fn clutter_script_get_object(
+    //     script: *mut ClutterScript,
+    //     name: *const c_char,
+    // ) -> *mut gobject::GObject;
+    // pub fn clutter_script_get_objects(
+    //     script: *mut ClutterScript,
+    //     first_name: *const c_char,
+    //     ...
+    // ) -> c_int;
+    // pub fn clutter_script_get_states(
+    //     script: *mut ClutterScript,
+    //     name: *const c_char,
+    // ) -> *mut ClutterState;
+    // pub fn clutter_script_get_translation_domain(script: *mut ClutterScript) -> *const c_char;
+    // pub fn clutter_script_get_type_from_name(
+    //     script: *mut ClutterScript,
+    //     type_name: *const c_char,
+    // ) -> GType;
+    // pub fn clutter_script_list_objects(script: *mut ClutterScript) -> *mut glib::GList;
+    // pub fn clutter_script_load_from_data(
+    //     script: *mut ClutterScript,
+    //     data: *const c_char,
+    //     length: ssize_t,
+    //     error: *mut *mut glib::GError,
+    // ) -> c_uint;
+    // pub fn clutter_script_load_from_file(
+    //     script: *mut ClutterScript,
+    //     filename: *const c_char,
+    //     error: *mut *mut glib::GError,
+    // ) -> c_uint;
+    // pub fn clutter_script_load_from_resource(
+    //     script: *mut ClutterScript,
+    //     resource_path: *const c_char,
+    //     error: *mut *mut glib::GError,
+    // ) -> c_uint;
+    // pub fn clutter_script_lookup_filename(
+    //     script: *mut ClutterScript,
+    //     filename: *const c_char,
+    // ) -> *mut c_char;
+    // pub fn clutter_script_set_translation_domain(script: *mut ClutterScript, domain: *const c_char);
+    // pub fn clutter_script_unmerge_objects(script: *mut ClutterScript, merge_id: c_uint);
 
     //=========================================================================
     // ClutterScrollActor
@@ -13700,9 +13700,9 @@ extern "C" {
     pub fn clutter_media_set_subtitle_uri(media: *mut ClutterMedia, uri: *const c_char);
     pub fn clutter_media_set_uri(media: *mut ClutterMedia, uri: *const c_char);
 
-    //=========================================================================
-    // ClutterScriptable
-    //=========================================================================
+    // //=========================================================================
+    // // ClutterScriptable
+    // //=========================================================================
     // pub fn clutter_scriptable_get_type() -> GType;
     // pub fn clutter_scriptable_get_id(scriptable: *mut ClutterScriptable) -> *const c_char;
     // pub fn clutter_scriptable_parse_custom_node(
