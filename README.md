@@ -46,6 +46,34 @@ Install clutter-rs:
 
 	cargo add clutter-rs
 
+**Usage example**
+
+```rust
+use clutter::prelude::*;
+use clutter::{Actor, Color, Stage};
+
+fn main() {
+    clutter::init();
+    let stage_color = Color::new(0, 0, 100, 255);
+    let stage = Stage::new();
+
+    stage.set_size(512_f32, 512_f32);
+    stage.set_background_color(Some(&stage_color));
+
+    let rect_color = Color::new(0, 255, 0, 128);
+    let rect = Actor::new();
+    rect.set_background_color(Some(&rect_color));
+    rect.set_size(100_f32, 100_f32);
+    rect.set_position(100_f32, 100_f32);
+
+    stage.add_child(&rect);
+    stage.show();
+
+    clutter::run();
+    return;
+}
+```
+
 ## Learn More
 
 * [Manual, Docs, etc](https://angular-rust.github.io/)
